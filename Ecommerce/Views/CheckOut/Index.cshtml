@@ -1,0 +1,400 @@
+﻿@model Ecommerce.Models.CheckOutViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutWebsite.cshtml";
+}
+
+<link href="~/Content/css/magnific-popup.css" rel="stylesheet" />
+<script src="~/Scripts/magnific-popup.js"></script>
+
+<div class="secondary_page_wrapper">
+
+    <div class="container">
+
+        <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <ul class="breadcrumbs">
+
+            <li><a href="~/Home/Index">Home</a></li>
+            <li>Checkout</li>
+
+        </ul>
+
+        <h1 class="page_title">Checkout</h1>
+
+
+        <!-- - - - - - - - - - - - - - Shipping information - - - - - - - - - - - - - - - - -->
+        @using (Html.BeginForm("PlaceOrder", "CheckOut", FormMethod.Post, new { id = "frmPlaceOrder", @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(m => m.OrderListJson)
+            @Html.HiddenFor(m => m.PaymentId)
+            @Html.HiddenFor(m => m.IsBlocked)
+
+
+
+            <section id="shoppinginformation" class="section_offset">
+
+                <h3>1. Customer Information</h3>
+
+                <div class="theme_box">
+
+                    <ul>
+
+                        <li class="row">
+
+                            <div class="col-sm-6">
+
+                                <label for="first_name_1" class="required">First Name</label>
+                                @Html.TextBoxFor(m => m.FirstNameShopper)
+                                @Html.ValidationMessageFor(m => m.FirstNameShopper, "", new { @class = "text-danger" })
+
+                            </div><!--/ [col] -->
+
+                            <div class="col-sm-6">
+
+                                <label for="last_name_1" class="required">Last Name</label>
+                                @Html.TextBoxFor(m => m.LastNameShopper)
+                                @Html.ValidationMessageFor(m => m.LastNameShopper, "", new { @class = "text-danger" })
+
+                            </div><!--/ [col] -->
+
+                        </li><!--/ .row -->
+
+                        <li class="row">
+
+                            <div class="col-sm-6">
+
+                                <label for="email_address_1" class="required">Email</label>
+                                @Html.TextBoxFor(m => m.EmailShopper)
+                                @Html.ValidationMessageFor(m => m.EmailShopper, "", new { @class = "text-danger" })
+
+                            </div><!--/ [col] -->
+
+                            <div class="col-sm-6">
+
+                                <label for="phone_1" class="required">Phone</label>
+                                @Html.TextBoxFor(m => m.PhoneShopper)
+                                @Html.ValidationMessageFor(m => m.PhoneShopper, "", new { @class = "text-danger" })
+
+                            </div><!--/ [col] -->
+
+                        </li><!--/ .row -->
+                        @*<li class="row">
+
+                                <div class="col-sm-6">
+
+                                    <label for="mobile_phone_1">Mobile Phone</label>
+                                    @Html.TextBoxFor(m => m.MobilePhoneShopper)
+                                    @Html.ValidationMessageFor(m => m.MobilePhoneShopper, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="col-sm-6">
+
+                                    <label for="mobile_phone_1">BB Code</label>
+                                    @Html.TextBoxFor(m => m.BBCode)
+                                    @Html.ValidationMessageFor(m => m.BBCode, "", new { @class = "text-danger" })
+
+                                </div>
+
+
+
+                            </li>*@
+
+                        @*<li class="row">
+
+                                <div class="col-xs-12">
+
+                                    <label for="address_1" class="required">Address</label>
+                                    @Html.TextBoxFor(m => m.AddressShopper)
+                                    @Html.ValidationMessageFor(m => m.AddressShopper, "", new { @class = "text-danger" })
+
+                                </div>
+
+                            </li>*@
+
+                        @*<li class="row">
+
+                                <div class="col-sm-6">
+
+                                    <label for="pincode_1" class="required">Pincode</label>
+                                    @Html.TextBoxFor(m => m.PincodeShopper)
+                                    @Html.ValidationMessageFor(m => m.PincodeShopper, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="col-sm-6">
+
+                                    <label class="required">City</label>
+
+                                    @Html.TextBoxFor(m => m.CityShopper)
+                                    @Html.ValidationMessageFor(m => m.CityShopper, "", new { @class = "text-danger" })
+
+                                </div>
+
+                            </li>*@
+
+                        @*<li class="row">
+
+                                <div class="col-xs-12">
+                                    <span>Notes about your order, Special Notes for Delivery</span>
+                                    @Html.TextAreaFor(m => m.ShippingOrder, new { @rows = "5" })
+
+                                </div>
+
+                            </li>*@
+
+                    </ul>
+
+
+                </div>
+
+                <footer class="bottom_box on_the_sides">
+
+                    <div class="left_side buttons_row">
+
+                        <a href="#checkoutmethod" class="button_grey middle_btn">Back</a>
+
+                        <a href="#paymentinformation" class="button_blue middle_btn">Continue</a>
+
+                    </div>
+
+                    <div class="right_side">
+
+                        <span class="prompt">Required Fields</span>
+
+                    </div>
+
+                </footer>
+
+            </section><!--/ .section_offset -->
+            <!-- - - - - - - - - - - - - - End of billing information - - - - - - - - - - - - - - - - -->
+
+            <!-- - - - - - - - - - - - - - Payment information - - - - - - - - - - - - - - - - -->
+
+            <section id="paymentinformation" class="section_offset">
+
+                <h3>2. Payment Information</h3>
+
+                <div class="theme_box">
+
+                    <ul class="simple_vertical_list">
+
+                        <li>
+                            <input type="radio" checked name="PaymentType" id="rb_cashondelivery" value="Cash on Delivery" class="rb_paymenttype">
+                            <label for="rb_cashondelivery">Pay-In-Store (You can Pay with Cash, Credit Card or GU Gold. Note: Physical card Required for card payments.)</label>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <footer class="bottom_box">
+
+                    <a href="#orderreview" class="button_blue middle_btn">Continue</a>
+
+                </footer>
+
+            </section>
+
+
+            <!-- - - - - - - - - - - - - - End of payment information - - - - - - - - - - - - - - - - -->
+            <!-- - - - - - - - - - - - - - Order review - - - - - - - - - - - - - - - - -->
+
+            <section id="orderreview" class="section_offset">
+
+                <h3>3. Order Review</h3>
+
+                <div class="table_wrap">
+
+                    <table class="table_type_1 order_review">
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="product_title_col">Product Name</th>
+                                <th class="product_price_col">Price</th>
+                                <th class="product_qty_col">Quantity</th>
+                                <th class="product_total_col">Total</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            @foreach (var product in Model.OrderList)
+                            {
+                                <tr class="cart_product_list" data-attribute="@product.AttributeId" data-size="@product.SizeId" data-productid="@product.ProductID">
+
+                                    <td data-title="Product Name">
+
+                                        <a href="@Url.Action("Index", "Detail", new { productId = product.ProductID })" class="product_title">@product.ProductName</a>
+                                        <ul class="sc_product_info">
+
+                                            <li>Product Code: @product.ProductCode</li>
+                                            <li><span class="size">Size: @product.Size</span></li>
+                                            <li><span class="attribute">Attributes: @product.Attributes</span></li>
+                                        </ul>
+                                    </td>
+
+                                    <td data-title="Price" class="subtotal">$ <span class="cart_unit_price">@product.Price</span></td>
+
+                                    <td data-title="Quantity" class="cart_quantity">@product.quantity</td>
+
+                                    <td data-title="Total" class="total cart_total_price"></td>
+
+                                </tr>
+                            }
+                        </tbody>
+
+                        <tfoot>
+
+                            <tr>
+
+                                <td colspan="3" class="bold">Subtotal</td>
+                                <td class="total" id="sub_total"></td>
+
+                            </tr>
+
+                            @*<tr>
+
+                                    <td colspan="3" class="bold">Shipping &amp; Heading (Flat Rate - Fixed)</td>
+                                    <td class="total">$5.00</td>
+
+                                </tr>*@
+
+                            <tr>
+
+                                <td colspan="3" class="grandtotal">Grand Total</td>
+                                <td class="grandtotal" id="grand_total"></td>
+
+                            </tr>
+
+                        </tfoot>
+
+                    </table>
+
+                </div><!--/ .table_wrap -->
+
+                <footer class="bottom_box on_the_sides">
+
+                    <div class="left_side v_centered">
+
+                        <span>Forgot an item?</span>
+
+                        <a href="~/Cart/index" class="button_grey middle_btn">Edit Your Cart</a>
+
+                    </div>
+
+                    <div class="button_box right_side">
+                        @*<a href="javascript:void(0)" id="btnPlaceorder" class="button_blue middle_btn">Place Order</a>*@
+                        <input type="submit" id="btnPlaceorder" onclick="InitializeFormValue();" class="button_blue middle_btn" value="Place Order" />
+
+
+                    </div>
+
+                </footer>
+
+
+            </section>
+
+            <!-- - - - - - - - - - - - - - End of order review - - - - - - - - - - - - - - - - -->
+        }
+
+       
+
+    </div><!--/ .container-->
+
+
+
+</div>
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    
+
+
+<script>
+
+
+
+    $(document).ready(function (e) {
+        CalculatePrice();
+    });
+
+    var CalculatePrice = function () {
+        var total = 0.00;
+        $('.cart_product_list').each(function (e, i) {
+            var quantity = parseFloat($(this).find('.cart_quantity').html());
+            var unitPrice = parseFloat($(this).find('.cart_unit_price').html());
+            var totalPrice = quantity * unitPrice;
+            $(this).find('.cart_total_price').html('$ ' + totalPrice);
+            total = total + totalPrice;
+        });
+        $('#sub_total').html('$ ' + total);
+        $('#grand_total').html('$ ' + total);
+    }
+
+    var InitializeFormValue = function () {
+
+
+        var attrArray = new Array();
+        $(".cart_product_list").each(function () {
+            var obj = new Object();
+            //var attr = new Array();
+            obj.ProductID = $(this).attr('data-productid');
+            obj.Quantity = parseFloat($(this).find('.cart_quantity').html());
+            obj.SizeId = $(this).attr('data-size');
+            obj.AttributeId = $(this).attr('data-attribute');
+            attrArray.push(obj);
+        });
+
+
+
+        var IsClosed = '@Model.IsStoreClosed';
+
+         if (IsClosed == 'True') {
+                event.preventDefault();
+             alert('Store closed');
+             return;
+            }
+
+        if (attrArray.length > 0) {
+            $("#OrderListJson").val(JSON.stringify(attrArray));
+
+
+
+             var IsBlocked = '@Model.IsBlocked';
+
+            if (IsBlocked == 'True') {
+                event.preventDefault();
+                alert('Sorry you are blocked');
+                return;
+            }
+
+
+
+        }
+
+        else {
+
+            event.preventDefault();
+            alert('Please add item to the cart');
+        }
+
+
+
+
+
+
+
+
+    };
+
+    
+</script>
+
+    

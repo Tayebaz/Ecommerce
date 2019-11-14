@@ -1,0 +1,69 @@
+﻿@model Ecommerce.Models.ProductViewModel
+@using Commom.GlobalMethods;
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <table class="table table-condensed">
+            <colgroup>
+                <col width="30%"/>
+                <col />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th colspan="2">Product Information</th>
+                </tr>
+            </thead>
+            <tbody>                
+                <tr>
+                    <td>Product Name:</td>
+                    <td>@Html.DisplayFor(x => x.ProductName, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>Product Code:</td>
+                    <td>@Html.DisplayFor(x => x.ProductCode,  new { @class = "form-control" })</td>
+                </tr>                
+                @*<tr>
+                    <td>Brand:</td>
+                    <td>@Html.DisplayFor(x => x.Brand, new { @class = "form-control" })</td>
+                </tr>*@
+                <tr>
+                    <td>Category:</td>
+                    <td>@Html.DisplayFor(x => x.Category, new { @class = "form-control" })</td>
+                </tr>               
+                <tr>
+                    <td>Price $:</td>
+                    <td>@Html.DisplayFor(x => x.Price, new { @class = "form-control" }) </td>
+                </tr>
+                <tr>
+                    <td>Availability:</td>
+                    <td>@(((Enumerator.Availability)Model.Availability).DescriptionAttr())</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+       
+        <table class="table table-condensed">
+            <colgroup>
+                <col width="30%" />
+                <col />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th colspan="2">More detail Information</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Short Description:</td>
+                    <td>@Html.DisplayFor(x => x.ShortDescription, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td>@Html.Raw(HttpUtility.HtmlDecode(Model.Description))</td>
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+</div>
+

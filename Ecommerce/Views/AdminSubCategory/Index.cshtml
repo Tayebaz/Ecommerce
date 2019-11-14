@@ -1,0 +1,179 @@
+﻿@model IEnumerable<Ecommerce.Models.SubCategoryViewModel>
+@using Common.Cryptography;
+@{
+    ViewBag.MainTitle = "Sub Category";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Sub Category</h2>
+                <div class="panel-actions">
+                    <button id="btn-del-selected" class="btn btn-danger" style="display:none"><i class="fa fa-trash-o"></i> Delete</button>
+                    <button class="btn btn-primary" id="lnkCreate"><i class="fa fa-plus"></i> Create New SubCategory</button>
+                </div>
+            </header>
+            <div class="panel-body">
+                <div class="dataTables_wrapper no-footer">
+                    <div id="parent" class="row datatables-header form-inline">
+                        <div class=" ">
+                            @Html.Label("Field Name", new { @class = "col-md-2 control-label" })
+                            <div class="col-md-3">
+                                @Html.DropDownList("colName", new List<SelectListItem>
+                            {
+                                new SelectListItem() {Text = "Select..", Value = ""},
+                                new SelectListItem() {Text = "SubCategory Name", Value = "SubCategoryName"},
+                                new SelectListItem() {Text = "Category Name", Value = "CategoryName"}
+                            }, new { @class = "filterItem form-control" })
+                            </div>
+
+                            @Html.Label("Search Value", new { @class = "col-md-2 control-label" })
+                            <div class="col-md-3">
+                                @Html.TextBox("colValue", "", new { @class = "filterItem form-control" })
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" class="btn btn-primary btn-sm" id="filterButton" name="search" value="Filter" />
+                                <input type="button" class="btn btn-primary btn-sm" id="filterButtonClear" name="search" value="Clear" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="grid"></table>
+                        <div id="pager"></div>
+                    </div>
+                </div>
+            </div>
+</section>
+    </div>
+</div>
+
+<link href="~/Content/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").jqGrid({
+            url: "/AdminSubCategory/GetCategory",
+            datatype: 'json',
+            mtype: 'Get',
+            styleUI: 'Bootstrap',
+            colNames: ['TokenKey', 'Sub-Category Name','Category Name'],
+            colModel: [
+                { key: true, hidden: true, name: 'TokenKey', index: 'TokenKey', classes: 'token' },
+                  { key: false, name: 'SubCategoryName', index: 'SubCategoryName' },
+                { key: false, name: 'CategoryName', index: 'CategoryName' }
+                //{ key: false, name: 'Address', index: 'Address' }
+            ],
+            pager: jQuery('#pager'),
+            rowNum: 10,
+            rowList: [10, 20, 30, 40],
+            height: '100%',
+            viewrecords: true,
+            //caption: 'Todo List',
+            emptyrecords: 'No records to display',
+            jsonReader: {
+                root: "rows",
+                page: "page",
+                total: "total",
+                records: "records",
+                repeatitems: false,
+                Id: "0"
+            },
+            autowidth: true,
+            multiselect: true,
+            beforeSelectRow: function (rowid, e) {
+                var $myGrid = $(this),
+                    i = $.jgrid.getCellIndex($(e.target).closest('td')[0]),
+                    cm = $myGrid.jqGrid('getGridParam', 'colModel');
+                return (cm[i].name === 'cb');
+            }
+        }).navGrid('#pager', { edit: false, add: false, del: false, search: false, refresh: true });
+
+        $('#filterButton').click(function (event) {
+            event.preventDefault();
+            filterGrid();
+        });
+
+        $('#filterButtonClear').click(function (event) {
+            event.preventDefault();
+
+            var postDataValues = $("#grid").jqGrid('getGridParam', 'postData');
+            // grab all the filter ids and values and add to the post object
+            $('.filterItem').each(function (index, item) {
+                $(item).val('');
+                postDataValues[$(item).attr('id')] = $(item).val();
+            });
+            $('#grid').jqGrid().setGridParam({ postData: postDataValues }).trigger('reloadGrid');
+        });
+
+        $(document).on("click", "#grid tbody tr", function (e) {
+            if (e.target.nodeName != "INPUT") {
+                window.document.location = '/Admin/SubCategory/Edit/' + $(this).find('td.token').html();
+            }
+        });
+
+        $(document).on("click", "#lnkCreate", function (e) {
+            window.document.location = '/Admin/SubCategory/Create';
+        });
+
+        $(document).on('click', '.cbox', function (e) {
+            if ($('.cbox:checked').length > 0) {
+                $('#btn-del-selected').show();
+            }
+            else {
+                $('#btn-del-selected').hide();
+            }
+        });
+
+        $(document).on('click', '#btn-del-selected', function (e) {
+            e.preventDefault();
+
+            var selectedtokens = "";
+            $.each($('.cbox.checkbox:checked'), function (index, element) {
+                selectedtokens += '~' + $(this).parents('tr').find('.token').html();
+            });
+            if (selectedtokens != "") {
+                swal({
+                    title: "Delete Category",
+                    text: "Are you sure you want to delete selected subcategories?",
+                    type: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    closeOnConfirm: true
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var urlData = { stkns: selectedtokens };
+                        $.get("../AdminSubCategory/Delete", urlData).done(function (resultData) {
+                            var resultObj = JSON.parse(resultData);
+                            if (resultObj.isSuccess == "True") {
+                                toastr.success(resultObj.message);
+                            }
+                            else {
+                                toastr.error(resultObj.message);
+                            }
+                            window.location.reload(true);
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+    function filterGrid() {
+        var postDataValues = $("#grid").jqGrid('getGridParam', 'postData');
+
+        // grab all the filter ids and values and add to the post object
+        $('.filterItem').each(function (index, item) {
+            postDataValues[$(item).attr('id')] = $(item).val();
+        });
+
+        $('#grid').jqGrid().setGridParam({ postData: postDataValues }).trigger('reloadGrid');
+    }
+</script>
+
+
+

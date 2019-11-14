@@ -1,0 +1,86 @@
+﻿@using MvcPaging;
+@model IPagedList<Ecommerce.Models.ProductViewModel>
+<link href="~/Content/css/pager.css" rel="stylesheet" />
+<div class="features_items">
+    <!--features_items-->
+    <h2 class="title text-center">Features Items</h2>
+    @{
+
+        foreach (var product in Model)
+        {
+            <div class="col-sm-4">
+                <div class="product-image-wrapper">
+                    <div class="single-products">
+                        <div class="productinfo text-center">
+                            @{
+                                var productImage = "";
+                                if (product.ImageList.Count > 0)
+                                {
+                                    productImage = product.ImageList[0].Images;
+                                }
+                            }
+                            <img src="@productImage" alt="" />
+                            @if (product.DiscountedPrice != product.Price)
+                            {
+                                <h5><span>NRs @product.Price</span>(@(product.DiscountPercent)% off)</h5>
+                            }
+                            <h2>NRs @product.DiscountedPrice</h2>
+                            <p>@product.ProductName</p>
+                            <a href="@Url.Action("Index", "Detail", new { productId = product.ProductID })" class="btn btn-default add-to-cart">Detail</a>
+                        </div>
+                        <div class="product-overlay">
+                            <div class="overlay-content">
+                                @if (product.DiscountedPrice != product.Price)
+                                {
+                                    <h5><span>NRs @product.Price</span>(@(product.DiscountPercent)% off)</h5>
+                                }
+                                <h2>NRs @product.DiscountedPrice</h2>
+                                <p>@product.ProductName</p>
+                                <a href="@Url.Action("Index", "Detail", new { productId = product.ProductID })" class="btn btn-default add-to-cart">Detail</a>
+                            </div>
+                        </div>                     
+                    </div>
+                    <div class="choose">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a class="AddToWishList" href="@Url.Action("AddToWishList", "Product", new { productid = product.ProductID })"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                            @*<li><a class="ProductAddToCart" href="@Url.Action("ProductAddToCart", "Product", new { productid = product.ProductID })"><i class="fa fa-plus-square"></i>Add to cart</a></li>*@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div><!--features_items-->
+<div class="pager">
+    @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+</div> 
+
+<script>
+    $(document).ready(function (e) {
+        $(".ProductAddToCart").click(function (e) {
+            e.preventDefault();
+            var currentUrl = $(this).attr('href') + "&quantity=1";
+            $.get(currentUrl).done(function (result) {
+                window.location.reload();
+            });
+        });
+
+        $(".AddToWishList").click(function (e) {
+            e.preventDefault();
+            var currentUrl = $(this).attr('href');
+            $.get(currentUrl).done(function (result) {
+                window.location.reload();
+            });
+        });
+        $(".pager a").click(function (e) {
+            e.preventDefault();
+            var currentAction = $(this).attr('href').split('?');
+            if (currentAction.length > 1) {
+                window.location = window.location.href + "?" + currentAction[1];
+            }
+            else {
+                window.location = window.location.href.split('?page')[0];
+            }
+        });
+    });
+</script>

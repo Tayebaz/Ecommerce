@@ -1,0 +1,227 @@
+﻿@model IEnumerable<Ecommerce.Models.CartWishlistViewModel>
+@using Commom.GlobalMethods;
+@{
+    Layout = "~/Views/Shared/_LayoutWebsite.cshtml";
+}
+
+<div class="secondary_page_wrapper">
+
+    <div class="container">
+
+        <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <ul class="breadcrumbs">
+
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li>Compare List</li>
+
+        </ul>
+
+        <!-- - - - - - - - - - - - - - End of breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <h1>Compare Products</h1>
+
+        <div class="table_wrap">
+
+            <table class="table_type_1 compare">
+
+                <tbody>
+
+                    <tr>
+
+                        <th class="row_title_col">Product Image</th>
+                        @foreach (var product in Model)
+                        {
+                            <td>
+                                <a href="@Url.Action("Index", "Detail", new { productId = product.ProductID })">
+                                    @{
+                            var productImage = "";
+                            if (product.ImageList.Count > 0)
+                            {
+                                productImage = product.ImageList[0].Images;
+                            }
+                                    }
+                                    <img src="@productImage" alt="" height="110" width="110" />
+                                </a>
+                            </td>
+                        }
+
+
+                    </tr>
+
+                    <tr>
+
+                        <th class="row_title_col">Product Name</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td>
+                                <a href="@Url.Action("Index", "Detail", new { productId = product.ProductID })">@product.ProductName</a>
+                            </td>
+                        }
+                    </tr>
+
+                    <tr>
+
+                        <th class="row_title_col">Size</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td>
+                                Size: @product.Size
+                            </td>
+                        }
+                    </tr>
+
+                    <tr>
+
+                        <th class="row_title_col">Attributes</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td>
+                                Attributes: @product.Attributes
+                            </td>
+                        }
+                    </tr>
+                   
+
+                    <tr>
+
+                        <th class="row_title_col">Price</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td class="total">
+                                NRs <span>@product.Price</span>
+                            </td>
+                        }
+                    </tr>
+
+                    <tr>
+
+                        <th class="row_title_col">Discount Percent</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td class="total">
+                                <span>@product.DiscountPercent</span>%
+                            </td>
+                        }
+                    </tr>
+
+                    <tr>
+
+                        <th class="row_title_col">Discounted Price</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td class="total">
+                                NRs <span>@product.DiscountedPrice</span>
+                            </td>
+                        }
+                    </tr>
+
+                    <tr>
+
+                        <th class="row_title_col">Description</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td>
+                                <p>@product.Description</p>
+                            </td>
+                        }
+
+                    </tr>
+
+
+
+                    <tr>
+
+                        <th class="row_title_col">Availability</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td>
+                                <span class="in_stock">@(((Enumerator.Availability)product.Availability).DescriptionAttr())</span>
+                            </td>
+                        }
+
+
+                    </tr>
+
+
+
+
+                    <tr>
+
+                        <th class="row_title_col">Action</th>
+
+                        @foreach (var product in Model)
+                        {
+                            <td>
+
+                                <div class="buttons_row">
+
+                                    <a href="javascript:void(0)" class="button_blue middle_btn btnAddToCart" data-attribute="@product.AttributeId" data-size="@product.SizeId" data-productid="@product.ProductID">Add to Cart</a>
+
+                                    <a href="javascript:void(0)" class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container btnAddToWishlist" data-attribute="@product.AttributeId" data-size="@product.SizeId" data-productid="@product.ProductID"><span class="tooltip top">Add to Wishlist</span></a>
+
+                                    <a href="javascript:void(0)" class="button_dark_grey middle_btn icon_btn tooltip_container btnDeleteFromCompare" data-attribute="@product.AttributeId" data-size="@product.SizeId" data-productid="@product.ProductID"><span class="tooltip top">Remove from Compare</span><i class="icon-cancel-2"></i></a>
+
+                                </div>
+
+                            </td>
+                        }
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div><!--/ .container-->
+
+</div>
+
+
+
+<script>
+    $(document).ready(function (e) {
+        $('.btnAddToCart').click(function (e) {
+            e.preventDefault();
+            var productId = $(this).attr('data-productid');
+            var size = $(this).attr('data-size');
+            var attribute = $(this).attr('data-attribute');
+            var quantity = 1;
+            var url = "../Product/ProductAddToCart?productid=" + productId + "&quantity=" + quantity + "&size=" + size + "&attributes=" + attribute;
+            $.get(url).done(function (result) {
+                window.location.reload();
+            });
+        });
+
+        $('.btnAddToWishlist').click(function (e) {
+            e.preventDefault();
+            var productId = $(this).attr('data-productid');
+            var size = $(this).attr('data-size');
+            var attribute = $(this).attr('data-attribute');
+            var url = "../Product/AddToWishList?productid=" + productId + "&size=" + size + "&attributes=" + attribute;
+            $.get(url).done(function (result) {
+                window.location.reload();
+            });
+        });
+
+        $('.btnDeleteFromCompare').click(function (e) {
+            e.preventDefault();
+            var productId = $(this).attr('data-productid');
+            var size = $(this).attr('data-size');
+            var attribute = $(this).attr('data-attribute');
+            var url = "../Product/DeleteFromCompareList?productid=" + productId + "&size=" + size + "&attributes=" + attribute;
+            $.get(url).done(function (result) {
+                window.location.reload();
+            });
+        });
+    });
+</script>

@@ -1,0 +1,70 @@
+﻿@model Ecommerce.Models.SliderViewModel
+
+@{
+    ViewBag.MainTitle = "Slider";
+}
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Create", "AdminSliderSetting", FormMethod.Post, new { area="Admin", id = "frmCreate", @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <section class="panel">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Create Slider</h2>
+                </header>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Title, new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Description, new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>                       
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.SliderImageUpload, new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.SliderImageUpload, new { @Type = "file", @accept = "image/gif, image/jpeg,image/png" })
+                                @Html.ValidationMessageFor(m => m.SliderImageUpload, "", new { @class = "text-danger" })
+                            </div>
+                        </div>                       
+                        <div class="form-group">
+                            <div class="col-md-3">&nbsp;</div>
+                            <div class="col-md-6">
+                                <img id="sliderImage" style="height:100px;width:100px;" src="~/Content/Admin/Images/default-image.png" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-9 col-md-offset-3">
+                            <input type="submit" class="btn btn-primary pull-right" value="Create" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $("#SliderImageUpload").change(function () {
+            readURL(this, $('#sliderImage'));
+        });
+       
+    });
+</script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+<script src="~/Scripts/CustomJavascripts/Common.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

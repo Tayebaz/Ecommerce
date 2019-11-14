@@ -1,0 +1,1503 @@
+------------------------------Date: 04-28-2016_09-48-44--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_09-53-44--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-00-19--------------------------------
+No connection string named 'GrihastiContext' could be found in the application config file.
+
+------------------------------Date: 04-28-2016_10-01-04--------------------------------
+No connection string named 'GrihastiContext' could be found in the application config file.
+
+------------------------------Date: 04-28-2016_10-03-01--------------------------------
+No connection string named 'GrihastiContext' could be found in the application config file.
+
+------------------------------Date: 04-28-2016_10-03-44--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-04-42--------------------------------
+No connection string named 'GrihastiContext' could be found in the application config file.
+
+------------------------------Date: 04-28-2016_10-13-24--------------------------------
+The controller for path '/Dashboard/Index' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-13-44--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-28-44--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-38-44--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-43-44--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-46-45--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-48-11--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-28-2016_10-48-44--------------------------------
+The controller for path '/699c5434097e4a9fb4f49c0ea1700e6f/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-01-2016_11-09-31--------------------------------
+The controller for path '/515e26b2c69140478fa4bd4580b837c9/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-01-2016_11-14-31--------------------------------
+The controller for path '/515e26b2c69140478fa4bd4580b837c9/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-01-2016_01-50-15--------------------------------
+The controller for path '/515e26b2c69140478fa4bd4580b837c9/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-01-2016_01-50-15--------------------------------
+The controller for path '/515e26b2c69140478fa4bd4580b837c9/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2016_11-35-57--------------------------------
+The controller for path '/2e64a7e6664f4d8a9b340d8434545799/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2016_11-40-53--------------------------------
+The controller for path '/2e64a7e6664f4d8a9b340d8434545799/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-21-2016_01-03-54--------------------------------
+The controller for path '/a5c769313e014492804e9d79594b0d08/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-21-2016_01-08-54--------------------------------
+The controller for path '/a5c769313e014492804e9d79594b0d08/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-21-2016_01-13-54--------------------------------
+The controller for path '/a5c769313e014492804e9d79594b0d08/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-26-2016_11-13-48--------------------------------
+The underlying provider failed on Open.
+
+------------------------------Date: 05-26-2016_11-24-34--------------------------------
+The underlying provider failed on Open.
+
+------------------------------Date: 05-26-2016_11-26-02--------------------------------
+The underlying provider failed on Open.
+
+------------------------------Date: 05-26-2016_11-28-13--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 05-26-2016_11-29-48--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 05-26-2016_11-46-48--------------------------------
+The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Purchase/Index.aspx
+~/Views/Purchase/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Purchase/Index.cshtml
+~/Views/Purchase/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+
+------------------------------Date: 05-26-2016_11-54-00--------------------------------
+The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Purchase/Index.aspx
+~/Views/Purchase/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Purchase/Index.cshtml
+~/Views/Purchase/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+
+------------------------------Date: 05-29-2016_10-14-30--------------------------------
+e:\project\grihasti-new\grihasti\grihasti\Views\OrderDetails\DeliveredOrder.cshtml(28): error CS1003: Syntax error, ',' expected
+
+------------------------------Date: 05-29-2016_10-14-56--------------------------------
+e:\project\grihasti-new\grihasti\grihasti\Views\OrderDetails\DeliveredOrder.cshtml(28): error CS1003: Syntax error, ',' expected
+
+------------------------------Date: 05-31-2016_04-30-18--------------------------------
+Value cannot be null.
+Parameter name: value
+
+------------------------------Date: 05-31-2016_04-30-57--------------------------------
+Value cannot be null.
+Parameter name: value
+
+------------------------------Date: 05-31-2016_04-33-18--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 05-31-2016_05-26-51--------------------------------
+d:\grihasti\grihasti\Views\Product\_DisplayImage.cshtml(13): error CS1061: 'Entities.Models.Image' does not contain a definition for 'TokenKey' and no extension method 'TokenKey' accepting a first argument of type 'Entities.Models.Image' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 05-31-2016_05-27-00--------------------------------
+d:\grihasti\grihasti\Views\Product\_DisplayImage.cshtml(13): error CS1061: 'Entities.Models.Image' does not contain a definition for 'TokenKey' and no extension method 'TokenKey' accepting a first argument of type 'Entities.Models.Image' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 05-31-2016_05-27-11--------------------------------
+d:\grihasti\grihasti\Views\Product\_DisplayImage.cshtml(13): error CS1061: 'Entities.Models.Image' does not contain a definition for 'TokenKey' and no extension method 'TokenKey' accepting a first argument of type 'Entities.Models.Image' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 05-31-2016_05-27-20--------------------------------
+d:\grihasti\grihasti\Views\Product\_DisplayImage.cshtml(13): error CS1061: 'Entities.Models.Image' does not contain a definition for 'TokenKey' and no extension method 'TokenKey' accepting a first argument of type 'Entities.Models.Image' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 05-31-2016_05-27-35--------------------------------
+d:\grihasti\grihasti\Views\Product\_DisplayImage.cshtml(13): error CS1061: 'Entities.Models.Image' does not contain a definition for 'TokenKey' and no extension method 'TokenKey' accepting a first argument of type 'Entities.Models.Image' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 05-31-2016_05-54-51--------------------------------
+An error occurred while communicating with the remote host. The error code is 0x80070001.
+
+------------------------------Date: 05-31-2016_06-22-45--------------------------------
+The controller for path '/Customer/GetUsers' was not found or does not implement IController.
+
+------------------------------Date: 05-31-2016_06-22-52--------------------------------
+The controller for path '/Customer/GetUsers' was not found or does not implement IController.
+
+------------------------------Date: 05-31-2016_06-26-53--------------------------------
+The controller for path '/Customer/GetUsers' was not found or does not implement IController.
+
+------------------------------Date: 05-31-2016_06-32-35--------------------------------
+The controller for path '/Customer/GetUsers' was not found or does not implement IController.
+
+------------------------------Date: 05-31-2016_06-33-03--------------------------------
+The controller for path '/Customer/GetUsers' was not found or does not implement IController.
+
+------------------------------Date: 05-31-2016_06-33-05--------------------------------
+The controller for path '/Customer/GetUsers' was not found or does not implement IController.
+
+------------------------------Date: 05-31-2016_06-33-06--------------------------------
+The controller for path '/Customer/GetUsers' was not found or does not implement IController.
+
+------------------------------Date: 05-31-2016_06-34-07--------------------------------
+The controller for path '/Customer/GetUsers' was not found or does not implement IController.
+
+------------------------------Date: 05-31-2016_06-49-56--------------------------------
+d:\grihasti\grihasti\Views\OrderDetails\DeliveredOrder.cshtml(28): error CS1003: Syntax error, ',' expected
+
+------------------------------Date: 05-31-2016_06-51-05--------------------------------
+d:\grihasti\grihasti\Views\OrderDetails\DeliveredOrder.cshtml(28): error CS1003: Syntax error, ',' expected
+
+------------------------------Date: 06-01-2016_03-16-11--------------------------------
+The controller for path '/Dashboard/Index' was not found or does not implement IController.
+
+------------------------------Date: 12-19-2017_02-00-42--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 12-19-2017_02-04-33--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 12-19-2017_02-33-26--------------------------------
+The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/CouponDetail/Index.aspx
+~/Views/CouponDetail/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/CouponDetail/Index.cshtml
+~/Views/CouponDetail/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+
+------------------------------Date: 12-19-2017_02-35-30--------------------------------
+The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/CouponDetail/Index.aspx
+~/Views/CouponDetail/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/CouponDetail/Index.cshtml
+~/Views/CouponDetail/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+
+------------------------------Date: 12-19-2017_02-36-07--------------------------------
+The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/CouponDetail/Index.aspx
+~/Views/CouponDetail/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/CouponDetail/Index.cshtml
+~/Views/CouponDetail/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml
+
+------------------------------Date: 12-19-2017_02-44-58--------------------------------
+e:\SONI\ECOM\grihasti\grihasti\Views\CouponDetail\Index.cshtml(38): error CS1061: 'Entities.Models.CouponDetail' does not contain a definition for 'AccId' and no extension method 'AccId' accepting a first argument of type 'Entities.Models.CouponDetail' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 12-19-2017_02-45-01--------------------------------
+e:\SONI\ECOM\grihasti\grihasti\Views\CouponDetail\Index.cshtml(38): error CS1061: 'Entities.Models.CouponDetail' does not contain a definition for 'AccId' and no extension method 'AccId' accepting a first argument of type 'Entities.Models.CouponDetail' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 12-19-2017_02-45-47--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 12-20-2017_09-58-03--------------------------------
+A public action method 'LogOff' was not found on controller 'Grihasti.Controllers.AccountController'.
+
+------------------------------Date: 04-15-2018_03-36-26--------------------------------
+The controller for path '/dfb75a8bca4648d187a55d0659f1f74d/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 04-15-2018_03-41-26--------------------------------
+The controller for path '/dfb75a8bca4648d187a55d0659f1f74d/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-13-2018_11-39-19--------------------------------
+The controller for path '/User' was not found or does not implement IController.
+
+------------------------------Date: 05-13-2018_11-40-09--------------------------------
+Execution of the child request failed. Please examine the InnerException for more information.
+
+------------------------------Date: 05-13-2018_11-52-11--------------------------------
+An error occurred while executing the command definition. See the inner exception for details.
+
+------------------------------Date: 05-13-2018_11-55-44--------------------------------
+The controller for path '/User/UserProfile' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_02-27-22--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_02-27-50--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_02-28-38--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_02-28-59--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_02-36-10--------------------------------
+A public action method 'Login' was not found on controller 'Grihasti.Controllers.AdminAccountController'.
+
+------------------------------Date: 05-19-2018_02-36-48--------------------------------
+The controller for path '/Admin/User' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_02-41-37--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_02-51-22--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_02-51-52--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-19-2018_03-15-22--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_03-18-16--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_03-19-31--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_03-24-12--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_03-26-02--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_03-27-30--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_03-30-11--------------------------------
+A public action method 'Create' was not found on controller 'Grihasti.Controllers.AdminUserController'.
+
+------------------------------Date: 05-19-2018_03-31-03--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_03-35-34--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_03-37-06--------------------------------
+A public action method 'AdminUser' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-19-2018_03-37-52--------------------------------
+A public action method 'AdminUser' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-19-2018_03-39-40--------------------------------
+A public action method 'AdminUser' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-19-2018_03-39-42--------------------------------
+A public action method 'AdminUser' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-19-2018_03-39-44--------------------------------
+A public action method 'AdminUser' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-19-2018_03-52-12--------------------------------
+A public action method 'UserProfile' was not found on controller 'Grihasti.Controllers.AdminUserController'.
+
+------------------------------Date: 05-19-2018_03-53-26--------------------------------
+The controller for path '/User/UserProfile' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-01-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-06-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-11-56--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-16-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-21-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-26-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-31-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-36-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-41-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-46-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-51-55--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_04-56-56--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_05-01-56--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-19-2018_08-07-09--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_12-34-43--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_12-38-41--------------------------------
+f:\Files\Bishnu\Projects\DotNet\Ecommerce\Version1.1\grihasti\Views\AdminCategory\Create.cshtml(8): error CS1003: Syntax error, ',' expected
+
+------------------------------Date: 05-20-2018_12-38-52--------------------------------
+f:\Files\Bishnu\Projects\DotNet\Ecommerce\Version1.1\grihasti\Views\AdminCategory\Create.cshtml(8): error CS1003: Syntax error, ',' expected
+
+------------------------------Date: 05-20-2018_12-40-13--------------------------------
+The controller for path '/__browserLink/requestData/ceeb6aa79f2a49b3bc8385e34da00a77' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_12-45-12--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_12-46-11--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_12-49-13--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_01-06-59--------------------------------
+A public action method 'Edit' was not found on controller 'Grihasti.Controllers.AdminBrandController'.
+
+------------------------------Date: 05-20-2018_01-07-00--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_01-07-09--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_01-07-36--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminCategoryController
+Grihasti.Controllers.AdminSubCategoryController
+
+------------------------------Date: 05-20-2018_01-07-36--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminCategoryController
+Grihasti.Controllers.AdminSubCategoryController
+
+------------------------------Date: 05-20-2018_01-07-44--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminCategoryController
+Grihasti.Controllers.AdminSubCategoryController
+
+------------------------------Date: 05-20-2018_01-07-44--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminCategoryController
+Grihasti.Controllers.AdminSubCategoryController
+
+------------------------------Date: 05-20-2018_01-07-59--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminCategoryController
+Grihasti.Controllers.AdminSubCategoryController
+
+------------------------------Date: 05-20-2018_01-07-59--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminCategoryController
+Grihasti.Controllers.AdminSubCategoryController
+
+------------------------------Date: 05-20-2018_01-08-42--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_01-15-29--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_01-20-30--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_01-25-33--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_01-41-29--------------------------------
+A public action method 'Create' was not found on controller 'Grihasti.Controllers.AdminProductController'.
+
+------------------------------Date: 05-20-2018_01-42-26--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 05-20-2018_01-47-51--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_02-15-55--------------------------------
+A public action method 'Create' was not found on controller 'Grihasti.Controllers.AdminProductController'.
+
+------------------------------Date: 05-20-2018_02-31-14--------------------------------
+An error occurred while executing the command definition. See the inner exception for details.
+
+------------------------------Date: 05-20-2018_02-36-20--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_02-41-20--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_02-46-20--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_02-51-20--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_02-56-20--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_03-01-20--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_03-38-05--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_03-41-32--------------------------------
+An error occurred while executing the command definition. See the inner exception for details.
+
+------------------------------Date: 05-20-2018_03-53-47--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-07-43--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-09-41--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-25-00--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-28-14--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-33-14--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-34-19--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-38-15--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-39-19--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-43-15--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-44-19--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-48-15--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-49-19--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-53-15--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-54-19--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-58-15--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_04-59-19--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_05-03-15--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_05-04-19--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_08-04-29--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-20-2018_08-04-30--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-21-2018_08-05-02--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-21-2018_08-05-03--------------------------------
+The controller for path '/b99349e6021a4c4382597f2246ef66bb/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_10-36-21--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_01-11-40--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_01-15-37--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_01-42-02--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_01-45-53--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_01-52-18--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 05-22-2018_01-54-26--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_02-13-13--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_02-19-06--------------------------------
+A public action method 'Create' was not found on controller 'Grihasti.Controllers.AdminProductController'.
+
+------------------------------Date: 05-22-2018_02-39-56--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_02-44-06--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_02-55-28--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_05-06-38--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_05-29-17--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_05-35-03--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-35-03--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-37-56--------------------------------
+A public action method 'Index' was not found on controller 'Grihasti.Controllers.AdminSliderSettingController'.
+
+------------------------------Date: 05-22-2018_05-43-53--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 05-22-2018_05-44-20--------------------------------
+A public action method 'SliderSetting' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-22-2018_05-47-50--------------------------------
+A public action method 'Create' was not found on controller 'Grihasti.Controllers.AdminSliderSettingController'.
+
+------------------------------Date: 05-22-2018_05-52-55--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-52-55--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-54-18--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-54-18--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-54-24--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-54-24--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-54-49--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-54-49--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-55-31--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_05-55-31--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_06-00-03--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-22-2018_06-00-03--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-23-2018_02-25-05--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 05-23-2018_02-32-10--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 05-23-2018_02-37-07--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 05-23-2018_02-38-01--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-23-2018_02-42-28--------------------------------
+c:\Users\bishnu\Desktop\Version1.2\grihasti\Views\Shared\_LayoutHeader.cshtml(209): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_11-59-12--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 05-24-2018_01-11-51--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-24-2018_01-38-05--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-24-2018_01-41-25--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-24-2018_01-41-25--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-24-2018_01-41-27--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.n49ziyaa.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-42-10--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.lfy9bts8.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-42-14--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.lfy9bts8.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-42-36--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.ch-jrwpv.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-42-38--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.ch-jrwpv.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-42-38--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.ch-jrwpv.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-42-39--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.ch-jrwpv.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-43-08--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.wgrh0p30.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-44-40--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.hr8djx35.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-44-41--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.hr8djx35.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-45-09--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.-yjwxc-s.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-45-18--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.-yjwxc-s.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-45-32--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.40s3c1sn.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-56-18--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.wtl_7f4t.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-57-14--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.dg38ycg9.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-57-16--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.dg38ycg9.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-57-17--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.dg38ycg9.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-57-18--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.dg38ycg9.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-57-18--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.dg38ycg9.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-58-09--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.bmn0jm-h.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-58-11--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.bmn0jm-h.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_01-59-14--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 05-24-2018_02-27-37--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.rym8kekz.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_02-28-36--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-24-2018_02-28-37--------------------------------
+Multiple controller types were found that match the URL. This can happen if attribute routes on multiple controllers match the requested URL.
+
+The request has found the following matching controller types: 
+Grihasti.Controllers.AdminHelpController
+Grihasti.Controllers.AdminOrderDetailsController
+
+------------------------------Date: 05-24-2018_02-30-01--------------------------------
+A public action method 'Index' was not found on controller 'Grihasti.Controllers.AdminHelpController'.
+
+------------------------------Date: 05-24-2018_02-30-09--------------------------------
+A public action method 'GetNewOrder' was not found on controller 'Grihasti.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 05-24-2018_02-33-20--------------------------------
+A public action method 'Help' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-24-2018_02-33-23--------------------------------
+A public action method 'Help' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-24-2018_02-58-14--------------------------------
+A public action method 'Index' was not found on controller 'Grihasti.Controllers.AdminHelpController'.
+
+------------------------------Date: 05-24-2018_03-09-28--------------------------------
+A public action method 'Index' was not found on controller 'Grihasti.Controllers.AdminHelpController'.
+
+------------------------------Date: 05-24-2018_03-17-41--------------------------------
+A public action method 'Index' was not found on controller 'Grihasti.Controllers.AdminHelpController'.
+
+------------------------------Date: 05-24-2018_03-37-32--------------------------------
+A public action method 'Account' was not found on controller 'Grihasti.Controllers.AdminController'.
+
+------------------------------Date: 05-24-2018_03-39-14--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-24-2018_03-39-17--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-24-2018_05-31-33--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.xcbi_v_4.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_05-37-56--------------------------------
+c:\Users\bishnu\AppData\Local\Temp\Temporary ASP.NET Files\root\95906f1a\29b4903c\App_Web__helpcontent.cshtml.1fbcdbb1.slkzwiyf.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 05-24-2018_05-44-59--------------------------------
+A public action method 'GetNewOrder' was not found on controller 'Ecommerce.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 05-24-2018_05-45-02--------------------------------
+A public action method 'GetPendingOrder' was not found on controller 'Ecommerce.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 05-24-2018_05-45-04--------------------------------
+A public action method 'GetCancelledOrder' was not found on controller 'Ecommerce.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 05-24-2018_05-45-07--------------------------------
+A public action method 'GetDeliveredOrder' was not found on controller 'Ecommerce.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 05-24-2018_05-45-09--------------------------------
+A public action method 'GetallOrderStatus' was not found on controller 'Ecommerce.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 05-25-2018_08-04-05--------------------------------
+The layout page "~/Views/Shared/_AdminLayout.cshtml" could not be found at the following path: "~/Views/Shared/_AdminLayout.cshtml".
+
+------------------------------Date: 05-25-2018_08-05-23--------------------------------
+The layout page "~/Views/Shared/_AdminLayout.cshtml" could not be found at the following path: "~/Views/Shared/_AdminLayout.cshtml".
+
+------------------------------Date: 05-25-2018_08-05-37--------------------------------
+The layout page "~/Views/Shared/_AdminLayout.cshtml" could not be found at the following path: "~/Views/Shared/_AdminLayout.cshtml".
+
+------------------------------Date: 05-25-2018_08-06-00--------------------------------
+The layout page "~/Views/Shared/_AdminLayout.cshtml" could not be found at the following path: "~/Views/Shared/_AdminLayout.cshtml".
+
+------------------------------Date: 05-25-2018_08-06-40--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminSettingController'.
+
+------------------------------Date: 05-25-2018_08-07-48--------------------------------
+The layout page "~/Views/Shared/_AdminLayout.cshtml" could not be found at the following path: "~/Views/Shared/_AdminLayout.cshtml".
+
+------------------------------Date: 05-25-2018_10-01-38--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 05-25-2018_10-23-32--------------------------------
+The controller for path '/Account/Login' was not found or does not implement IController.
+
+------------------------------Date: 05-25-2018_11-00-18--------------------------------
+A public action method 'PendingOrder' was not found on controller 'Ecommerce.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 06-03-2018_08-03-38--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 06-03-2018_08-14-08--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 06-03-2018_08-16-18--------------------------------
+c:\Users\Bishnu-pc\AppData\Local\Temp\Temporary ASP.NET Files\root\00e6b198\947a1f18\App_Web__helpcontent.cshtml.1fbcdbb1.c-g7jnho.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 06-03-2018_08-16-22--------------------------------
+c:\Users\Bishnu-pc\AppData\Local\Temp\Temporary ASP.NET Files\root\00e6b198\947a1f18\App_Web__helpcontent.cshtml.1fbcdbb1.c-g7jnho.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 06-03-2018_08-16-39--------------------------------
+c:\Users\Bishnu-pc\AppData\Local\Temp\Temporary ASP.NET Files\root\00e6b198\947a1f18\App_Web__helpcontent.cshtml.1fbcdbb1.0wgbb-mo.0.cs(34): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'GrihastiWebsite' (are you missing an assembly reference?)
+
+------------------------------Date: 10-21-2019_08-45-29--------------------------------
+The controller for path '/b294e09df0d14f32864868de92396a14/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-24-2019_08-57-54--------------------------------
+The controller for path '/27e2190804994bb58d5f0ebe06d443d2/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-24-2019_09-05-24--------------------------------
+The controller for path '/27e2190804994bb58d5f0ebe06d443d2/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-24-2019_10-57-39--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 10-24-2019_10-59-05--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminProductController'.
+
+------------------------------Date: 10-24-2019_11-02-36--------------------------------
+The controller for path '/' was not found or does not implement IController.
+
+------------------------------Date: 10-25-2019_02-30-53--------------------------------
+c:\Users\Bishnu\Desktop\Ecommerce\Ecommerce\Ecommerce\Views\Detail\Index.cshtml(147): error CS0029: Cannot implicitly convert type 'string' to 'bool'
+
+------------------------------Date: 10-25-2019_02-34-20--------------------------------
+c:\Users\Bishnu\Desktop\Ecommerce\Ecommerce\Ecommerce\Views\Detail\Index.cshtml(147): error CS0029: Cannot implicitly convert type 'string' to 'bool'
+
+------------------------------Date: 10-25-2019_02-36-47--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 10-25-2019_02-41-24--------------------------------
+Index was outside the bounds of the array.
+
+------------------------------Date: 10-25-2019_02-46-51--------------------------------
+c:\Users\Bishnu\Desktop\Ecommerce\Ecommerce\Ecommerce\Views\Shared\_LayoutHeader.cshtml(239): error CS1061: 'GrihastiWebsite.Controllers.ProductController' does not contain a definition for 'ProductID' and no extension method 'ProductID' accepting a first argument of type 'GrihastiWebsite.Controllers.ProductController' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 10-25-2019_04-24-42--------------------------------
+Index was outside the bounds of the array.
+
+------------------------------Date: 10-25-2019_04-37-21--------------------------------
+Index was outside the bounds of the array.
+
+------------------------------Date: 10-25-2019_05-46-25--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 10-25-2019_05-55-04--------------------------------
+Index was outside the bounds of the array.
+
+------------------------------Date: 10-25-2019_09-52-55--------------------------------
+The controller for path '/31b774ccb2164605a7a5929eab1253e2/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-25-2019_09-57-56--------------------------------
+The controller for path '/31b774ccb2164605a7a5929eab1253e2/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-25-2019_10-17-35--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 10-25-2019_10-20-51--------------------------------
+Input string was not in a correct format.
+
+------------------------------Date: 10-25-2019_11-01-28--------------------------------
+Index was outside the bounds of the array.
+
+------------------------------Date: 10-25-2019_11-02-00--------------------------------
+The parameters dictionary contains a null entry for parameter 'size' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult AddToWishList(Int32, Int32, System.String)' in 'GrihastiWebsite.Controllers.ProductController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 10-25-2019_11-20-53--------------------------------
+Index was outside the bounds of the array.
+
+------------------------------Date: 10-25-2019_11-23-47--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 10-25-2019_11-24-14--------------------------------
+Index was outside the bounds of the array.
+
+------------------------------Date: 10-25-2019_11-34-53--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 10-25-2019_11-41-39--------------------------------
+The controller for path '/31b774ccb2164605a7a5929eab1253e2/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-26-2019_12-28-13--------------------------------
+The controller for path '/6b606c1b41034e3c9aea9afb5eb75ca8/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-26-2019_12-39-08--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-26-2019_12-39-10--------------------------------
+The controller for path '/6b606c1b41034e3c9aea9afb5eb75ca8/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-26-2019_12-40-28--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-26-2019_12-42-03--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-26-2019_12-44-58--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-26-2019_01-02-34--------------------------------
+The controller for path '/6b606c1b41034e3c9aea9afb5eb75ca8/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-26-2019_01-05-44--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 10-26-2019_01-07-35--------------------------------
+The controller for path '/6b606c1b41034e3c9aea9afb5eb75ca8/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-26-2019_01-11-52--------------------------------
+A public action method 'orderitemdetails' was not found on controller 'Ecommerce.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 10-26-2019_01-12-12--------------------------------
+The controller for path '/6b606c1b41034e3c9aea9afb5eb75ca8/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-26-2019_01-12-35--------------------------------
+The controller for path '/6b606c1b41034e3c9aea9afb5eb75ca8/arterySignalR/ping' was not found or does not implement IController.
+
+------------------------------Date: 10-25-2019_07-43-57--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_07-44-31--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_07-44-40--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_07-46-11--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_07-46-24--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_07-49-02--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_07-50-06--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_07-51-44--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 10-25-2019_07-53-07--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_07-56-08--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_08-13-08--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_08-14-54--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_08-14-59--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-25-2019_08-33-47--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-26-2019_09-35-49--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-26-2019_10-07-16--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 10-26-2019_12-10-59--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 10-26-2019_12-11-24--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 10-26-2019_12-16-24--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 10-26-2019_12-20-48--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 10-26-2019_12-22-44--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 10-26-2019_12-23-09--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 10-26-2019_12-56-15--------------------------------
+Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+
+------------------------------Date: 10-27-2019_06-57-39--------------------------------
+The 'isClosed' property on 'Setting' could not be set to a 'null' value. You must set this property to a non-null value of type 'System.Boolean'. 
+
+------------------------------Date: 10-27-2019_07-40-23--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-27-2019_08-49-50--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-27-2019_09-03-17--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-27-2019_01-40-35--------------------------------
+c:\Users\Danielle\Desktop\Ecommerce\SourceCode\Ecommerce\Ecommerce\Views\Login\Index.cshtml(41): error CS1963: An expression tree may not contain a dynamic operation
+
+------------------------------Date: 10-27-2019_01-40-52--------------------------------
+c:\Users\Danielle\Desktop\Ecommerce\SourceCode\Ecommerce\Ecommerce\Views\Login\Index.cshtml(41): error CS1963: An expression tree may not contain a dynamic operation
+
+------------------------------Date: 10-27-2019_01-41-42--------------------------------
+c:\Users\Danielle\Desktop\Ecommerce\SourceCode\Ecommerce\Ecommerce\Views\Login\Index.cshtml(39): error CS1963: An expression tree may not contain a dynamic operation
+
+------------------------------Date: 10-27-2019_01-43-19--------------------------------
+A public action method 'Login' was not found on controller 'Ecommerce.Controllers.AdminAccountController'.
+
+------------------------------Date: 10-29-2019_08-16-59--------------------------------
+A public action method 'Login' was not found on controller 'Ecommerce.Controllers.AdminAccountController'.
+
+------------------------------Date: 10-29-2019_08-28-58--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 10-29-2019_11-56-45--------------------------------
+A public action method 'Login' was not found on controller 'Ecommerce.Controllers.AdminAccountController'.
+
+------------------------------Date: 10-29-2019_11-57-29--------------------------------
+A public action method 'Login' was not found on controller 'Ecommerce.Controllers.AdminAccountController'.
+
+------------------------------Date: 10-29-2019_07-26-27--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-29-2019_07-29-05--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-29-2019_07-29-26--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-29-2019_07-32-58--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-29-2019_07-33-42--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-30-2019_02-21-02--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-30-2019_02-31-56--------------------------------
+Nullable object must have a value.
+
+------------------------------Date: 10-30-2019_02-34-16--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-30-2019_11-17-35--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 10-30-2019_11-27-06--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 10-30-2019_11-27-56--------------------------------
+The parameters dictionary contains a null entry for parameter 'productId' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Index(Int32)' in 'GrihastiWebsite.Controllers.DetailController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+
+------------------------------Date: 11-02-2019_03-23-04--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 11-02-2019_03-24-48--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 11-02-2019_03-25-20--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 11-02-2019_03-41-44--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 11-02-2019_04-07-39--------------------------------
+Non-static method requires a target.
+
+------------------------------Date: 11-04-2019_01-46-56--------------------------------
+Value cannot be null.
+Parameter name: inner
+
+------------------------------Date: 11-04-2019_01-53-17--------------------------------
+Value cannot be null.
+Parameter name: inner
+
+------------------------------Date: 11-04-2019_01-54-24--------------------------------
+Value cannot be null.
+Parameter name: inner
+
+------------------------------Date: 11-04-2019_03-18-04--------------------------------
+Value cannot be null.
+Parameter name: inner
+
+------------------------------Date: 11-04-2019_11-49-41--------------------------------
+Value cannot be null.
+Parameter name: inner
+
+------------------------------Date: 11-05-2019_04-42-01--------------------------------
+Value cannot be null.
+Parameter name: inner
+
+------------------------------Date: 11-06-2019_05-11-09--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminSettingController'.
+
+------------------------------Date: 11-06-2019_05-41-08--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminUserController'.
+
+------------------------------Date: 11-06-2019_05-52-28--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminUserController'.
+
+------------------------------Date: 11-06-2019_06-00-18--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-06-2019_06-14-10--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminUserController'.
+
+------------------------------Date: 11-06-2019_06-59-43--------------------------------
+The controller for path '/Account/Login' was not found or does not implement IController.
+
+------------------------------Date: 11-06-2019_07-00-03--------------------------------
+The controller for path '/Account/Login' was not found or does not implement IController.
+
+------------------------------Date: 11-06-2019_07-00-07--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 11-06-2019_07-34-34--------------------------------
+A public action method 'Inde' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-06-2019_10-27-10--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-06-2019_10-31-22--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-06-2019_10-35-39--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-06-2019_10-40-11--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-06-2019_10-44-16--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-07-2019_05-52-33--------------------------------
+No route in the route table matches the supplied values.
+
+------------------------------Date: 11-07-2019_05-53-42--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminOrderDetailsController'.
+
+------------------------------Date: 11-07-2019_07-19-29--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-07-2019_07-22-38--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-07-2019_08-05-20--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-07-2019_08-12-54--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminSettingController'.
+
+------------------------------Date: 11-07-2019_08-16-45--------------------------------
+A public action method 'Index' was not found on controller 'Ecommerce.Controllers.AdminSettingController'.
+
+------------------------------Date: 11-08-2019_03-36-08--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-08-2019_06-35-16--------------------------------
+String reference not set to an instance of a String.
+Parameter name: s
+
+------------------------------Date: 11-10-2019_04-38-11--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_04-39-15--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(24): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_04-39-43--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(24): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_04-40-18--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(24): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_04-40-40--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(24): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_04-40-59--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(24): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_04-55-44--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_04-56-15--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(40): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_04-56-37--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(40): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_04-59-03--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(40): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_04-59-52--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_05-01-17--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(40): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_05-06-20--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_05-07-35--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(40): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_05-12-16--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_05-13-16--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(40): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_05-17-12--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_05-17-59--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(40): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_05-18-30--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(40): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_05-30-46--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_05-31-08--------------------------------
+A public action method 'Inde' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_05-32-14--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(411): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_05-32-49--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(411): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_05-33-19--------------------------------
+\\mac\home\Desktop\SourceCode\Ecommerce\Ecommerce\Views\CheckOut\Index.cshtml(411): error CS1061: 'System.Web.Mvc.UrlHelper' does not contain a definition for 'ActionContext' and no extension method 'ActionContext' accepting a first argument of type 'System.Web.Mvc.UrlHelper' could be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-10-2019_06-46-03--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_06-46-15--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_06-46-50--------------------------------
+The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_LayoutWebsite.cshtml": "scripts".
+
+------------------------------Date: 11-10-2019_06-50-16--------------------------------
+The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_LayoutWebsite.cshtml": "scripts".
+
+------------------------------Date: 11-10-2019_06-59-18--------------------------------
+The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_LayoutWebsite.cshtml": "scripts".
+
+------------------------------Date: 11-10-2019_07-09-46--------------------------------
+The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_LayoutWebsite.cshtml": "scripts".
+
+------------------------------Date: 11-10-2019_07-11-47--------------------------------
+The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_LayoutWebsite.cshtml": "scripts".
+
+------------------------------Date: 11-10-2019_07-16-36--------------------------------
+The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_LayoutWebsite.cshtml": "scripts".
+
+------------------------------Date: 11-10-2019_07-18-11--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_07-27-02--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_07-27-55--------------------------------
+An object reference is required for the non-static field, method, or property 'System.Web.Mvc.HtmlHelper.Raw(string)'
+
+------------------------------Date: 11-10-2019_07-29-52--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_07-30-33--------------------------------
+The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_LayoutWebsite.cshtml": "script".
+
+------------------------------Date: 11-10-2019_07-30-33--------------------------------
+The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_LayoutWebsite.cshtml": "script".
+
+------------------------------Date: 11-10-2019_07-31-09--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_07-31-10--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_07-35-34--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_07-36-48--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_07-37-03--------------------------------
+A public action method 'Inde' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_07-38-14--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_07-41-52--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_07-44-22--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_07-47-11--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_07-47-59--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_08-15-18--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_08-22-45--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_08-23-41--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_08-23-47--------------------------------
+A public action method 'PrintCommands' was not found on controller 'umartcms.Controllers.PrintCommandsController'.
+
+------------------------------Date: 11-10-2019_08-29-32--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_08-29-35--------------------------------
+A public action method 'PrintCommands' was not found on controller 'umartcms.Controllers.PrintCommandsController'.
+
+------------------------------Date: 11-10-2019_08-41-28--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_08-44-47--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_08-47-35--------------------------------
+The controller for path '/Controllers/PrintCommands/ClientPrinterSettings' was not found or does not implement IController.
+
+------------------------------Date: 11-10-2019_08-49-02--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_08-50-01--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_08-50-11--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_08-53-40--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_08-54-36--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_08-55-30--------------------------------
+A public action method 'PrintCommands' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_09-02-34--------------------------------
+A public action method 'CheckOut' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_09-04-30--------------------------------
+A public action method 'CheckOut' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_09-04-39--------------------------------
+A public action method 'CheckOut' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_09-05-00--------------------------------
+A public action method 'CheckOut' was not found on controller 'GrihastiWebsite.Controllers.CheckOutController'.
+
+------------------------------Date: 11-10-2019_09-05-53--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_09-19-42--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-10-2019_10-03-25--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-12-2019_05-51-34--------------------------------
+An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)
+
+------------------------------Date: 11-12-2019_06-52-15--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-12-2019_06-52-23--------------------------------
+Object reference not set to an instance of an object.
+

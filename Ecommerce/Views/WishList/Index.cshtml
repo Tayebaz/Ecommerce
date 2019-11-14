@@ -1,0 +1,210 @@
+﻿@model IEnumerable<Ecommerce.Models.CartWishlistViewModel>
+@using Commom.GlobalMethods;
+@{
+    Layout = "~/Views/Shared/_LayoutWebsite.cshtml";
+}
+<link href="~/Content/JPList/jplist.core.min.css" rel="stylesheet" />
+<link href="~/Content/JPList/jplist.pagination-bundle.min.css" rel="stylesheet" />
+<script src="~/Scripts/JPList/jplist.core.min.js"></script>
+<script src="~/Scripts/JPList/jplist.pagination-bundle.min.js"></script>
+<div class="secondary_page_wrapper">
+
+    <div class="container">
+
+        <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <ul class="breadcrumbs">
+
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li>Wishlist</li>
+
+        </ul>
+
+        <!-- - - - - - - - - - - - - - End of breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <div class="row">
+            <main id="wishlisttable" class="col-md-12 col-sm-12">
+
+                <h1>Wishlist</h1>
+
+                <header class="top_box on_the_sides">
+
+                    <div class="jplist-panel box panel-top">
+
+                        <div class="jplist-drop-down"
+                             data-control-type="items-per-page-drop-down"
+                             data-control-name="paging"
+                             data-control-action="paging">
+
+                            <ul>
+                                <li><span data-number="3"> 3 per page </span></li>
+                                <li><span data-number="5"> 5 per page </span></li>
+                                <li><span data-number="10" data-default="true"> 10 per page </span></li>
+                                <li><span data-number="all"> view all </span></li>
+                            </ul>
+                        </div>
+
+                        <div class="jplist-label"
+                             data-type="Page {current} of {pages}"
+                             data-control-type="pagination-info"
+                             data-control-name="paging"
+                             data-control-action="paging">
+                        </div>
+                        <div class="jplist-pagination right_side"
+                             data-control-type="pagination"
+                             data-control-name="paging"
+                             data-control-action="paging">
+                        </div>
+
+                    </div>
+
+                </header><!--/ .top_box -->
+
+                <div class="table_wrap">
+
+                    <table class="table_type_1 wishlist_table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="product_image_col">Product Image</th>
+                                <th class="product_title_col">Product Name and Category</th>
+                                <th class="product_price_col">Price</th>
+                                <th class="product_qty_col">Quantity</th>
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="list box text-shadow">
+
+                            @foreach (var product in Model)
+                            {
+                                <tr class="list-item box">
+
+                                    <!-- - - - - - - - - - - - - - Product image - - - - - - - - - - - - - - - - -->
+
+                                    <td data-title="Product Image">
+
+                                        <a href="@Url.Action("Index", "Detail", new { productId = product.ProductID })">
+                                            @{
+                                var productImage = "";
+                                if (product.ImageList.Count > 0)
+                                {
+                                    productImage = product.ImageList[0].Images;
+                                }
+                                            }
+                                            <img src="@productImage" alt="" height="110" width="110" />
+                                        </a>
+
+                                    </td>
+
+                                    <!-- - - - - - - - - - - - - - End of product image - - - - - - - - - - - - - - - - -->
+                                    <!-- - - - - - - - - - - - - - Product name & category - - - - - - - - - - - - - - - - -->
+
+                                    <td data-title="Product Name and Category">
+
+                                        <a class="product_title" href="@Url.Action("Index", "Detail", new { productId = product.ProductID })">@product.ProductName</a>
+
+                                        <a href="#">@product.CategoryName</a> <br />
+
+                                        <span class="size" data-size="@product.SizeId">Size: @product.Size</span><br />
+                                        <span class="attribute" data-attribute="@product.AttributeId">Attributes: @product.Attributes</span>
+
+                                    </td>
+
+                                    <!-- - - - - - - - - - - - - - End of product name & category - - - - - - - - - - - - - - - - -->
+                                    <!-- - - - - - - - - - - - - - Product price - - - - - - - - - - - - - - - - -->
+
+                                    <td data-title="Price" class="total"><p class="cart_unit_price">NRs <span>@product.DiscountedPrice</span></p></td>
+
+                                    <!-- - - - - - - - - - - - - - End of product price - - - - - - - - - - - - - - - - -->
+                                    <!-- - - - - - - - - - - - - - Product quantity - - - - - - - - - - - - - - - - -->
+
+                                    <td data-title="Quantity">
+
+                                        <div class="qty min clearfix">
+
+                                            <button class="theme_button" data-direction="minus">&#45;</button>
+                                            <input class="cart_quantity_input" type="text" name="" value="1">
+                                            <button class="theme_button" data-direction="plus">&#43;</button>
+
+                                        </div><!--/ .qty.min.clearfix-->
+
+                                    </td>
+
+                                    <!-- - - - - - - - - - - - - - End of product quantity - - - - - - - - - - - - - - - - -->
+                                    <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
+
+                                    <td data-title="Action">
+
+                                        <ul class="buttons_col">
+
+                                            <li>
+                                                <a href="@Url.Action("ProductAddToCart", "Product", new { productid = product.ProductID })" class="AddToCart button_blue">Add to Cart</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="@Url.Action("DeleteFromWishList", "Product", new { productid = product.ProductID })" class="DeleteFromWishList button_dark_grey">Remove</a>
+                                            </li>
+
+                                        </ul>
+
+                                    </td>
+
+                                    <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+
+                                </tr>
+                            }
+
+
+                        </tbody>
+
+                    </table>
+
+                </div><!--/ .table_wrap -->
+
+
+            </main><!--/ [col]-->
+
+        </div><!--/ .row-->
+
+    </div><!--/ .container-->
+
+</div>
+
+<script>
+    $('document').ready(function () {
+
+        $('#wishlisttable').jplist({
+            itemsBox: '.list'
+            , itemPath: '.list-item'
+            , panelPath: '.jplist-panel'
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function (e) {
+        $('.AddToCart').click(function (e) {
+            e.preventDefault();
+            var quantity = $(this).parents('tr').find('.cart_quantity_input').val();
+            var size = $(this).parents('tr').find('.size').data("size");
+            var attribute = $(this).parents('tr').find('.attribute').data("attribute");
+            var currentUrl = $(this).attr('href') + '&quantity=' + quantity + '&size=' + size + '&attributes=' + attribute;
+            $.get(currentUrl).done(function (result) {
+                window.location.reload();
+            });
+        });
+
+        $('.DeleteFromWishList').click(function (e) {
+            e.preventDefault();
+            var currentUrl = $(this).attr('href');
+            $.get(currentUrl).done(function (result) {
+                window.location.reload();
+            });
+        });
+    });
+</script>

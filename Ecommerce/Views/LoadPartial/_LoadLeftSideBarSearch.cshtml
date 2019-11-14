@@ -1,0 +1,151 @@
+﻿@model Ecommerce.Models.LeftSideBarViewModel
+
+<aside class="col-md-3 col-sm-4 has_mega_menu">
+    <!-- - - - - - - - - - - - - - Categories - - - - - - - - - - - - - - - - -->
+
+    <section class="section_offset animated transparent" data-animation="fadeInDown">
+
+        <h3>Categories</h3>
+
+        <ul class="theme_menu cats">
+            @{
+                foreach (var category in Model.categoryList)
+                {
+                    if (category.subCategoryList.Count() > 0)
+                    {
+                        <li class="has_megamenu">
+
+                            <a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})">@category.CategoryName</a>
+
+                            <!-- - - - - - - - - - - - - - Mega menu - - - - - - - - - - - - - - - - -->
+
+                            <div class="mega_menu clearfix">
+
+                                <!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
+
+                                <div class="mega_menu_item">
+
+                                    <ul class="list_of_links">
+                                        @{
+                        foreach (var subcategory in category.subCategoryList)
+                        {
+                            <li><a href="@Url.Action("Index", "Product", new { subcategoryid = subcategory.SubCategoryId })">@subcategory.SubCategoryName</a></li>
+                        }
+                                        }
+                                    </ul>
+
+                                </div><!--/ .mega_menu_item-->       
+                            </div><!--/ .mega_menu-->
+                            <!-- - - - - - - - - - - - - - End of mega menu - - - - - - - - - - - - - - - - -->
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="has_megamenu"><a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})">@category.CategoryName</a></li>
+                    }
+                }
+            }
+        </ul>
+
+    </section><!--/ .animated.transparent-->
+    <!-- - - - - - - - - - - - - - End of categories - - - - - - - - - - - - - - - - -->
+    @*@{
+        var qprice = string.IsNullOrEmpty(Request.QueryString["price"]) ? "0,10000" : Request.QueryString["price"].ToString();
+    }*@
+    @*<section class="section_offset">
+
+        <h3>Filter</h3>
+
+        <form class="type_2">
+
+            <div class="table_layout list_view">
+
+                <div class="table_row">                  
+                     - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - 
+
+                    <div class="table_cell">
+
+                        <fieldset>
+
+                            <legend>Price</legend>
+
+                            <div class="range">
+                                @{
+                                    var qPrice = qprice.Split(',');
+                                }
+                                Range :
+                                <input type="hidden" id="minval" value="@qPrice[0]" />
+                                <input type="hidden" id="maxval" value="@qPrice[1]" />
+                                <span class="min_val"></span> -
+                                <span class="max_val"></span>
+
+                                <input type="hidden" name="" class="min_value">
+
+                                <input type="hidden" name="" class="max_value">
+
+                            </div>
+
+                            <div id="slider"></div>
+
+                        </fieldset>
+
+                    </div>/ .table_cell 
+                     - - - - - - - - - - - - - End price - - - - - - - - - - - - - - - - 
+                  
+
+                </div>/ .table_row 
+
+            </div>/ .table_layout 
+
+            <footer class="bottom_box">
+
+                <div class="buttons_row">
+
+                    <button id="filter" type="submit" class="button_blue middle_btn">Search</button>
+
+                    <button id="clearfilter" type="reset" class="button_grey middle_btn filter_reset">Reset</button>
+
+                </div>
+
+            </footer>
+
+        </form>
+
+    </section>*@
+    <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
+
+    @*@*<div class="section_offset animated transparent" data-animation="fadeInDown">
+
+        <a href="#">
+
+            <img src="~/Content/images/gift.jpg" alt="">
+
+        </a>
+
+    </div>*@
+
+    <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
+</aside><!--/ [col]-->
+
+<script>
+    $(document).ready(function (e) {
+
+        $('#filter').click(function (e) {
+            e.preventDefault();
+            var currentUrl = window.location.href.split('&');
+            var queryString = "";
+
+            var price = $.trim($('.min_value').val()) + "," + $.trim($('.max_value').val());
+            queryString = queryString + "&price=" + price;
+
+            window.location = currentUrl[0] + queryString;
+        });
+
+        $('#clearfilter').click(function (e) {
+            e.preventDefault();
+            var currentUrl = window.location.href.split('&');
+            window.location = currentUrl[0];
+        });
+    });
+</script>

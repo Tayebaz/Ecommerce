@@ -1,0 +1,293 @@
+﻿@model IEnumerable<Ecommerce.Models.CategoryViewModel>
+
+
+    @{
+
+        foreach (var category in Model)
+        {
+            var hascategoryproduct = false;
+            foreach (var subcategory in category.subCategoryList)
+            {
+                if (subcategory.productList.Count > 0)
+                {
+                    hascategoryproduct = true;
+                }
+            }
+            if (category.subCategoryList.Count > 0 && hascategoryproduct)
+            {
+                <section class="section_offset animated transparent" data-animation="fadeInDown">
+
+                    <h3>@category.CategoryName</h3>
+
+                    <!-- - - - - - - - - - - - - - Tabs - - - - - - - - - - - - - - - - -->
+
+                    <div class="tabs type_2 products">
+
+                        <!-- - - - - - - - - - - - - - Navigation of tabs - - - - - - - - - - - - - - - - -->
+
+                        <ul class="tabs_nav clearfix">
+                            @foreach (var subcategory in category.subCategoryList)
+                            {
+                                if (subcategory.productList.Count > 0)
+                                {
+                                    <li><a href="#@subcategory.SubCategoryId">@subcategory.SubCategoryName</a></li>
+                                }
+                            }
+                        </ul>
+
+                        <!-- - - - - - - - - - - - - - End navigation of tabs - - - - - - - - - - - - - - - - -->
+                        <!-- - - - - - - - - - - - - - Tabs container - - - - - - - - - - - - - - - - -->
+
+                        <div class="tab_containers_wrap">
+                            @foreach (var subcategory in category.subCategoryList)
+                            {
+                                if (subcategory.productList.Count > 0)
+                                {
+                                    <div id="@subcategory.SubCategoryId" class="tab_container">
+
+                                        <!-- - - - - - - - - - - - - - Carousel of featured products - - - - - - - - - - - - - - - - -->
+
+                                        <div class="owl_carousel carousel_in_tabs">
+
+                                            <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
+                                            @foreach (var product in subcategory.productList)
+                                            {
+                                                <div class="product_item type_2">
+
+                                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
+
+                                                    <div class="image_wrap">
+
+                                                        @{
+                                                var productImage = "";
+                                                if (product.ImageList.Count > 0)
+                                                {
+                                                    productImage = product.ImageList[0].Images;
+                                                }
+                                                        }
+                                                        <img src="@productImage" alt="" />
+
+                                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
+
+                                                        <div class="actions_wrap">
+
+                                                            <div class="centered_buttons">
+
+                                                                <a href="@Url.Action("Index", "Detail", new { productId = product.ProductID })" class="button_dark_grey middle_btn quick_view">Quick View</a>
+
+                                                            </div><!--/ .centered_buttons -->
+
+                                                        </div><!--/ .actions_wrap-->
+                                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+
+                                                    </div><!--/. image_wrap-->
+                                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->
+                                                   
+                                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
+
+                                                    <div class="description">
+
+                                                        <a href="#">@product.ProductName</a>
+                                                        <p>@product.ShortDescription</p>
+                                                        @*<div class="clearfix product_info">
+
+                                                            <p class="product_price alignleft"><b>NRs @product.DiscountedPrice</b></p>
+
+                                                        </div>*@
+                                                        <p class="product_price">
+                                                            @if (product.DiscountedPrice != product.Price)
+                                                            {
+                                                                <s>NRs @product.Price</s>
+                                                            }
+                                                            <b class="theme_color">NRs @product.DiscountedPrice</b>
+                                                        </p>
+
+                                                    </div>
+
+                                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
+                                                    <!-- - - - - - - - - - - - - - Actions - - - - - - - - - - - - - - - - -->
+
+                                                    <div class="buttons_row">
+
+                                                        <button class="button_blue middle_btn btnAddToCart" data-productid="@product.ProductID">Add to Cart</button>
+
+                                                        <button class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container btnAddToWishlist" data-productid="@product.ProductID"><span class="tooltip top">Add to Wishlist</span></button>
+
+                                                        <button class="button_dark_grey def_icon_btn middle_btn add_to_compare tooltip_container btnAddToCompare" data-productid="@product.ProductID"><span class="tooltip top">Add to Compare</span></button>
+
+                                                    </div>
+
+                                                    <!-- - - - - - - - - - - - - - End of actions - - - - - - - - - - - - - - - - -->
+
+                                                </div>
+                                            }
+                                            <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
+
+                                        </div><!--/ .sh_container-->
+                                        <!-- - - - - - - - - - - - - - End of carousel of featured products - - - - - - - - - - - - - - - - -->
+                                        <!-- - - - - - - - - - - - - - View all - - - - - - - - - - - - - - - - -->
+
+                                        <footer class="bottom_box">
+
+                                            <a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})" class="button_grey middle_btn">View All Products</a>
+
+                                        </footer>
+
+                                        <!-- - - - - - - - - - - - - - End of view all - - - - - - - - - - - - - - - - -->
+
+                                    </div><!--/ #tab-1-->
+                                }
+                            }
+                        </div>
+
+                        <!-- - - - - - - - - - - - - - End of tabs containers - - - - - - - - - - - - - - - - -->
+
+                    </div><!--/ .tabs.section_offset-->
+                    <!-- - - - - - - - - - - - - - End of tabs - - - - - - - - - - - - - - - - -->
+
+                </section>
+
+            }
+            else
+            {
+                if (category.productList.Count > 0)
+                {
+
+                    <section class="section_offset animated transparent" data-animation="fadeInDown">
+
+                        <h3 class="offset_title">@category.CategoryName</h3>
+
+                        <!-- - - - - - - - - - - - - - Carousel of beauty products - - - - - - - - - - - - - - - - -->
+
+                        <div class="owl_carousel carousel_in_tabs">
+
+                            <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
+                            @foreach (var product in category.productList)
+                            {
+                                <div class="product_item type_2">
+
+                                    <!-- - - - - - - - - - - - - - Thumbmnail - - - - - - - - - - - - - - - - -->
+
+                                    <div class="image_wrap">
+
+                                        @{
+                                var productImage = "";
+                                if (product.ImageList.Count > 0)
+                                {
+                                    productImage = product.ImageList[0].Images;
+                                }
+                                        }
+                                        <img src="@productImage" alt="" />
+
+                                        <!-- - - - - - - - - - - - - - Product actions - - - - - - - - - - - - - - - - -->
+
+                                        <div class="actions_wrap">
+
+                                            <div class="centered_buttons">
+
+                                                <a href="@Url.Action("Index", "Detail", new { productId = product.ProductID })" class="button_dark_grey middle_btn quick_view">Quick View</a>
+
+                                            </div><!--/ .centered_buttons -->
+
+                                        </div><!--/ .actions_wrap-->
+                                        <!-- - - - - - - - - - - - - - End of product actions - - - - - - - - - - - - - - - - -->
+
+                                    </div><!--/. image_wrap-->
+                                    <!-- - - - - - - - - - - - - - End thumbmnail - - - - - - - - - - - - - - - - -->                                  
+                                    <!-- - - - - - - - - - - - - - Product title & price - - - - - - - - - - - - - - - - -->
+
+                                    <div class="description">
+
+                                        <a href="#">@product.ProductName</a>
+                                        <p>@product.ShortDescription</p>
+                                        @*<div class="clearfix product_info">
+
+                                            <p class="product_price alignleft"><b>NRs @product.DiscountedPrice</b></p>
+
+                                        </div>*@
+                                        <p class="product_price">
+                                            @*@if (product.DiscountedPrice != product.Price)
+                                            {*@
+                                                <b class="theme_color">$ @product.Price</b>
+                                            @*}*@
+                                            @*<b class="theme_color">NRs @product.DiscountedPrice</b>*@
+                                        </p>
+
+                                    </div>
+
+                                    <!-- - - - - - - - - - - - - - End of product title & price - - - - - - - - - - - - - - - - -->
+                                    <!-- - - - - - - - - - - - - - Actions - - - - - - - - - - - - - - - - -->
+
+                                    <div class="buttons_row">
+                                        <button class="button_blue middle_btn btnAddToCart" data-productid="@product.ProductID">Add to Cart</button>
+
+                                        @*<button class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container btnAddToWishlist" data-productid="@product.ProductID"><span class="tooltip top">Add to Wishlist</span></button>
+
+                                        <button class="button_dark_grey def_icon_btn middle_btn add_to_compare tooltip_container btnAddToCompare" data-productid="@product.ProductID"><span class="tooltip top">Add to Compare</span></button>*@
+                                        @*<button class="button_blue middle_btn">Add to Cart</button>
+
+                                            <button class="button_dark_grey middle_btn def_icon_btn add_to_wishlist tooltip_container"><span class="tooltip top">Add to Wishlist</span></button>
+
+                                            <button class="button_dark_grey middle_btn def_icon_btn add_to_compare tooltip_container"><span class="tooltip top">Add to Compare</span></button>*@
+
+                                    </div>
+
+                                    <!-- - - - - - - - - - - - - - End of actions - - - - - - - - - - - - - - - - -->
+
+                                </div>
+                            }
+                            <!-- - - - - - - - - - - - - - End product - - - - - - - - - - - - - - - - -->
+
+                        </div><!--/ .sh_container-->
+                        <!-- - - - - - - - - - - - - - End of carousel of beauty products - - - - - - - - - - - - - - - - -->
+                        <!-- - - - - - - - - - - - - - View all - - - - - - - - - - - - - - - - -->
+
+                        <footer class="bottom_box">
+
+                            <a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})" class="button_grey middle_btn">View All Products</a>
+
+                        </footer>
+
+                        <!-- - - - - - - - - - - - - - End of view all - - - - - - - - - - - - - - - - -->
+
+                    </section><!--/ .section_offset -->
+                }
+            }
+        }
+    }
+
+    <script>
+        $(document).ready(function (e) {
+
+            $('.btnAddToCart').click(function (e) {
+                e.preventDefault();
+                var productId = $(this).attr('data-productid');
+                var quantity = 1;
+                var url = "../Product/ProductAddToCart?productid=" + productId + "&quantity=" + quantity;
+                $.get(url).done(function (result) {
+                    window.location.reload();
+                });
+            });
+
+            $('.btnAddToWishlist').click(function (e) {
+                e.preventDefault();
+                var productId = $(this).attr('data-productid');
+                var url = "../Product/AddToWishList?productid=" + productId;
+                $.get(url).done(function (result) {
+                    window.location.reload();
+                });
+            });
+
+            $('.btnAddToCompare').click(function (e) {
+                e.preventDefault();
+                var productId = $(this).attr('data-productid');
+                var url = "../Product/AddToCompareList?productid=" + productId;
+                $.get(url).done(function (result) {
+                    window.location.reload();
+                });
+            });
+
+        });
+
+    </script>
+

@@ -1,0 +1,66 @@
+﻿@model Ecommerce.Models.LeftSideBarViewModel
+
+<aside class="col-md-3 col-sm-4 has_mega_menu">
+    <!-- - - - - - - - - - - - - - Categories - - - - - - - - - - - - - - - - -->
+
+    <section class="section_offset animated transparent" data-animation="fadeInDown">
+
+        <h3>Categories</h3>
+
+        <ul class="theme_menu cats">
+            @{
+                foreach (var category in Model.categoryList)
+                {
+                    if (category.subCategoryList.Count() > 0)
+                    {
+                        <li class="has_megamenu">
+
+                            <a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})">@category.CategoryName</a>
+
+                            <!-- - - - - - - - - - - - - - Mega menu - - - - - - - - - - - - - - - - -->
+
+                            <div class="mega_menu clearfix">
+
+                                <!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
+
+                                <div class="mega_menu_item">
+
+                                    <ul class="list_of_links">
+                                        @{
+                        foreach (var subcategory in category.subCategoryList)
+                        {
+                            <li><a href="@Url.Action("Index", "Product", new { subcategoryid = subcategory.SubCategoryId })">@subcategory.SubCategoryName</a></li>
+                        }
+                                        }
+                                    </ul>
+
+                                </div><!--/ .mega_menu_item-->       
+                            </div><!--/ .mega_menu-->
+                            <!-- - - - - - - - - - - - - - End of mega menu - - - - - - - - - - - - - - - - -->
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="has_megamenu"><a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})">@category.CategoryName</a></li>
+                    }
+                }
+            }
+        </ul>
+
+    </section><!--/ .animated.transparent-->
+    <!-- - - - - - - - - - - - - - End of categories - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Banner - - - - - - - - - - - - - - - - -->
+
+    <div class="section_offset animated transparent" data-animation="fadeInDown">
+
+        @*<a href="#">
+
+            <img src="~/Content/images/gift.jpg" alt="">
+
+        </a>*@
+
+    </div>
+
+    <!-- - - - - - - - - - - - - - End of banner - - - - - - - - - - - - - - - - -->
+</aside><!--/ [col]-->

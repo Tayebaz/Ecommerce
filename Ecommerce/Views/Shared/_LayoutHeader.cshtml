@@ -1,0 +1,380 @@
+﻿<link href="~/Content/css/magnific-popup.css" rel="stylesheet" />
+<script src="~/Scripts/magnific-popup.js"></script>
+<header id="header" class="type_6">
+    <!-- - - - - - - - - - - - - - Bottom part - - - - - - - - - - - - - - - - -->
+    @{
+        var setting = Commom.GlobalMethods.GlobalMethods.NewInstance().GetSetting();
+    }
+    <div class="bottom_part">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="main_header_row">
+
+                    <div class="col-sm-3">
+
+                        <!-- - - - - - - - - - - - - - Logo - - - - - - - - - - - - - - - - -->
+
+                        <a href="@Url.Action("Index", "Home")" class="logo">
+
+                            <img src="@Url.Action("GetLogo", "Home")" height="120" alt="Himalayan Salt Nepal" />
+
+                        </a>
+
+                        <!-- - - - - - - - - - - - - - End of logo - - - - - - - - - - - - - - - - -->
+
+                    </div><!--/ [col]-->
+
+
+
+                    <div class="col-sm-9">
+
+                        <!-- - - - - - - - - - - - - - Search form - - - - - - - - - - - - - - - - -->
+
+                        <div class="clearfix search">
+
+                            <input type="text" id="txtsearch" onkeypress="Search(event);" name="" tabindex="1" placeholder="Search..." class="alignleft">
+
+                            <button id="btnsearch" class="button_green def_icon_btn alignleft"></button>
+
+                        </div><!--/ #search-->
+
+                        <!-- - - - - - - - - - - - - - End search form - - - - - - - - - - - - - - - - -->
+
+                    </div><!--/ [col]-->
+                    <div class="col-sm-3" style="display:none;">
+
+                        <!-- - - - - - - - - - - - - - Call to action - - - - - - - - - - - - - - - - -->
+
+                        <div class="call_us">
+                            <div id="userbox" class="userbox">
+                                <a href="#" data-toggle="dropdown">
+                                    <figure class="profile-picture">
+                                      
+                                    </figure>
+                                    <div class="profile-info">
+                                        <span class="name">@Filters.AuthenticationModel.GlobalUser.getGlobalUser().FirstName</span>
+                                        <span class="role">@Filters.AuthenticationModel.GlobalUser.getGlobalUser().UserType</span>
+                                    </div>
+
+                                    <i class="fa custom-caret"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <ul class="list-unstyled">
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a role="menuitem" tabindex="-1" href="@Url.Action("UserProfile", "AdminUser", new { area = "Admin" })"><i class="fa fa-user"></i> My Profile</a>
+                                        </li>
+                                        <li>
+                                            <a role="menuitem" tabindex="-1" href="@Url.Action("LogOff", "AdminAccount", new { area = "Admin" })"><i class="fa fa-power-off"></i> Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <span>Call us:</span> <b>@setting.Phone</b>
+
+                        </div><!--/ .call_us-->
+                        <!-- - - - - - - - - - - - - - End call to action - - - - - - - - - - - - - - - - -->
+
+                    </div><!--/ [col]-->
+
+                </div><!--/ .main_header_row-->
+
+            </div><!--/ .row-->
+
+        </div><!--/ .container-->
+
+    </div><!--/ .bottom_part -->
+    <!-- - - - - - - - - - - - - - End of bottom part - - - - - - - - - - - - - - - - -->
+    <!-- - - - - - - - - - - - - - Main navigation wrapper - - - - - - - - - - - - - - - - -->
+
+    <div id="main_navigation_wrap">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-xs-12">
+
+                    <!-- - - - - - - - - - - - - - Sticky container - - - - - - - - - - - - - - - - -->
+
+                    <div class="sticky_inner type_2">
+
+                        <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
+
+                        <div class="nav_item size_4">
+
+                            <button class="open_menu" style="float:left;"></button>
+
+                            <!-- - - - - - - - - - - - - - Main navigation - - - - - - - - - - - - - - - - -->
+
+                            <ul class="theme_menu cats dropdown">
+
+                                @{
+                                    Repository.RepositoryFactoryCore.DatabaseFactory _df = new Repository.RepositoryFactoryCore.DatabaseFactory();
+                                    Repository.RepositoryFactoryCore.UnitOfWork _unitOfWork = new Repository.RepositoryFactoryCore.UnitOfWork(_df);
+                                    Business.CategoryBusiness _categoryBusiness = new Business.CategoryBusiness(_df, _unitOfWork);
+                                    Business.SubCategoryBusiness _subCategoryBusiness = new Business.SubCategoryBusiness(_df, _unitOfWork);
+                                    Business.ProductBusiness _productBusiness = new Business.ProductBusiness(_df, _unitOfWork);
+                                    var categoryList = _categoryBusiness.GetListWT();
+                                    var subCategoryList = _subCategoryBusiness.GetListWT();
+                                    AutoMapper.Mapper.CreateMap<Entities.Models.SubCategory, Ecommerce.Models.SubCategoryViewModel>();
+                                    var vmSubCategoryList = AutoMapper.Mapper.Map<List<Entities.Models.SubCategory>, List<Ecommerce.Models.SubCategoryViewModel>>(subCategoryList);
+
+                                    var vmCategoryList = (from c in categoryList
+                                                          select new Ecommerce.Models.CategoryViewModel
+                                                          {
+                                                              CategoryId = c.CategoryId,
+                                                              TokenKey = c.TokenKey,
+                                                              CategoryName = c.CategoryName,
+                                                              subCategoryList = vmSubCategoryList.Where(sc => sc.CategoryId == c.CategoryId).ToList()
+                                                          }).ToList();
+
+                                    foreach (var category in vmCategoryList)
+                                    {
+                                        if (category.subCategoryList.Count() > 0)
+                                        {
+
+                                            <li class="has_megamenu animated_item">
+
+                                                <a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})">@category.CategoryName</a>
+
+                                                <!-- - - - - - - - - - - - - - Mega menu - - - - - - - - - - - - - - - - -->
+
+                                                <div class="mega_menu clearfix">
+
+                                                    <!-- - - - - - - - - - - - - - Mega menu item - - - - - - - - - - - - - - - - -->
+
+                                                    <div class="mega_menu_item">
+
+                                                        <ul class="list_of_links">
+
+                                                            @{
+                                                                foreach (var subcategory in category.subCategoryList)
+                                                                {
+                                                                    <li><a href="@Url.Action("Index", "Product", new { subcategoryid = subcategory.SubCategoryId })">@subcategory.SubCategoryName</a></li>
+                                                                }
+                                                            }
+
+                                                        </ul>
+
+                                                    </div><!--/ .mega_menu_item-->
+
+
+                                                </div><!--/ .mega_menu-->
+                                                <!-- - - - - - - - - - - - - - End of mega menu - - - - - - - - - - - - - - - - -->
+
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="has_megamenu animated_item"><a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})">@category.CategoryName</a></li>
+                                        }
+                                    }
+                                }
+                            </ul>
+
+                            <!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - -
+    </div><!--/ .nav_item-->
+                            
+
+                            <!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
+                            <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
+
+                            <div class="nav_item" style="width:50%; float:left;">
+
+                                <nav class="main_navigation">
+
+                                    <ul>
+
+                                        <li class="current"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                        <li><a href="~/CheckOut/index">Checkout</a></li>
+                                        <li><a href="~/About/index">About</a></li>
+                                        <li><a href="~/About/index?helpType=Contact">Contact Us</a></li>
+                                    </ul>
+
+                                </nav><!--/ .main_navigation-->
+
+                            </div>
+
+                            <!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
+                            <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
+                            @{
+                                GrihastiWebsite.Controllers.ProductController product = new GrihastiWebsite.Controllers.ProductController();
+                               // var wishList = product.GetWishList();
+                                var cartList = product.GetCartList();
+                               // var compareList = product.GetCompareList();
+                            }
+
+                            @*<div class="nav_item size_4">
+                                @if (wishList.Count > 0)
+                                {
+                                    <a href="~/WishList/index" class="wishlist_button" data-amount="@wishList.Count()"></a>
+                                }
+                                else
+                                {
+                                    <a href="~/WishList/index" class="wishlist_button"></a>
+                                }
+
+                            </div>/ .nav_item
+                             - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - 
+                             - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - 
+
+                            <div class="nav_item size_4">
+                                @if (compareList.Count() > 0)
+                                {
+                                    <a href="~/CompareList/index" class="compare_button" data-amount="@compareList.Count()"></a>
+                                }
+                                else
+                                {
+                                    <a href="~/CompareList/index" class="compare_button"></a>
+                                }
+                            </div>/ .nav_item*@
+                            <!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - -->
+                            <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
+
+                            <div class="nav_item size_3" style="float:right;">
+                                @if (cartList.Count > 0)
+                                {
+                                    <button id="open_shopping_cart" class="open_button" data-amount="@cartList.Count()">
+                                        <b class="title">My Cart</b>
+                                        <b class="total_price">$ @cartList.Sum(c => c.Price * c.quantity)</b>
+                                    </button>
+
+                                    <!-- - - - - - - - - - - - - - Products list - - - - - - - - - - - - - - - - -->
+
+                                    <div class="shopping_cart dropdown">
+                                        @foreach (var crtlist in cartList)
+                                        {
+                                            <div class="animated_item">
+
+                                                <p class="title">Recently added item(s)</p>
+
+                                                <!-- - - - - - - - - - - - - - Product - - - - - - - - - - - - - - - - -->
+
+                                                <div class="clearfix sc_product">
+                                                    @{
+                                                        var productImage = "";
+                                                        if (crtlist.ImageList.Count > 0)
+                                                        {
+                                                            productImage = crtlist.ImageList[0].Images;
+                                                        }
+                                                    }
+                                                    <a href="@Url.Action("Index", "Detail", new { productId = crtlist.ProductID })" class="product_thumb"><img src="@productImage" alt="" height="60px"></a>
+
+                                                    <a href="@Url.Action("Index", "Detail", new { productId = crtlist.ProductID })" class="product_name">@crtlist.ProductName</a>
+
+                                                    <p>@crtlist.quantity x $ @crtlist.Price</p>
+
+                                                    @*<button class="close deletefromcartlist"></button>*@
+                                                    <a class="close deletefromcartlist" href="@Url.Action("DeleteFromCartList", "Product", new { productid = crtlist.ProductID })"></a>
+
+                                                </div><!--/ .clearfix.sc_product-->
+                                                <!-- - - - - - - - - - - - - - End of product - - - - - - - - - - - - - - - - -->
+
+                                            </div><!--/ .animated_item-->
+                                        }
+                                        <div class="animated_item">
+
+                                            <!-- - - - - - - - - - - - - - Total info - - - - - - - - - - - - - - - - -->
+
+                                            <ul class="total_info">
+                                                <li><span class="price">Total:</span> $ @cartList.Sum(c => c.Price * c.quantity)</li>
+
+                                                @*<li><span class="price">Discount:</span> NRs @(cartList.Sum(c => Math.Round(Decimal.Divide(c.DiscountPercent ?? 0, 100) * c.Price) * c.quantity))</li>*@
+
+                                                <li class="total"><b><span class="price">Grand Total:</span> $ @cartList.Sum(c => c.Price * c.quantity)</b></li>
+
+                                            </ul>
+
+                                            <!-- - - - - - - - - - - - - - End of total info - - - - - - - - - - - - - - - - -->
+
+                                        </div><!--/ .animated_item-->
+                                        <div class="animated_item">
+
+                                            <a href="~/Cart/index" class="button_grey">View Cart</a>
+
+                                            <a href="~/CheckOut/index" class="button_blue">Checkout</a>
+
+                                        </div><!--/ .animated_item-->
+
+                                    </div><!--/ .shopping_cart.dropdown-->
+                                    <!-- - - - - - - - - - - - - - End of products list - - - - - - - - - - - - - - - - -->
+                                }
+                                else
+                                {
+                                    <button id="open_shopping_cart" class="open_button">
+                                        <b class="title">My Cart</b>
+                                        <b class="total_price">$ 0</b>
+                                    </button>
+                                }
+
+                            </div><!--/ .nav_item-->
+                            <!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
+
+                        </div><!--/ .sticky_inner -->
+                    <!-- - - - - - - - - - - - - - End of sticky container - - - - - - - - - - - - - - - - -->
+
+                </div><!--/ [col]-->
+
+            </div><!--/ .row-->
+
+        </div><!--/ .container-->
+
+    </div><!--/ .main_navigation_wrap-->
+    <!-- - - - - - - - - - - - - - End of main navigation wrapper - - - - - - - - - - - - - - - - -->
+
+</header>
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+</script>
+
+<script>
+    function Search(e) {
+        if (e.keyCode == 13) {
+            var searchstring = $('#txtsearch').val();
+            window.location = "../Product/Search?searchstring=" + searchstring;
+            return false;
+        }
+    }
+
+    $(document).ready(function (e) {
+        $('#btnsearch').click(function (e) {
+            e.preventDefault();
+            var searchstring = $('#txtsearch').val();
+            window.location = "../Product/Search?searchstring=" + searchstring;
+        });
+        $('.deletefromcartlist').click(function (e) {
+            e.preventDefault();
+            var currentUrl = $(this).attr('href');
+            $.get(currentUrl).done(function (result) {
+                window.location.reload();
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('li.current').removeClass('current');
+        $('a[href="' + location.pathname + '"]').closest('li').addClass('current');
+    });
+</script>

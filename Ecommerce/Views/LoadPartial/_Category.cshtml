@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Ecommerce.Models.ProductViewModel>
+<div class="category-tab">
+    <!--category-tab-->
+    <div class="col-sm-12">
+        <ul class="nav nav-tabs">
+            @{
+                var categoryList = new List<KeyValuePair<int, string>>();
+                foreach (var p in Model)
+                {
+                    categoryList.Add(new KeyValuePair<int, string>(p.SubCategoryId, p.SubCategoryName));
+                }
+                var categories = categoryList.Distinct();
+                var count = 0;
+                foreach (var cat in categories)
+                {
+                    var activeClass = "";
+                    if (count == 0)
+                    {
+                        activeClass = "active";
+                    }
+                    <li class="@activeClass"><a href="#@cat.Key" data-toggle="tab">@cat.Value</a></li>
+                    count++;
+                }
+            }          
+        </ul>
+    </div>
+    <div class="tab-content">
+        @{
+            count = 0;
+            foreach (var cat in categories)
+            {
+                var activeClass = "";
+                if (count == 0)
+                {
+                    activeClass = "active in";
+                }
+                <div class="tab-pane fade @activeClass" id="@cat.Key">
+                    @{
+                var products = Model.Where(c => c.SubCategoryId == cat.Key);
+                foreach (var pdt in products)
+                {
+                    <div class="col-sm-3">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">                                  
+
+                    var productImage = "";
+                    if (pdt.ImageList.Count > 0)
+                    {
+                        productImage = pdt.ImageList[0].Images;
+                    }
+                                    }
+                                    <img src="@productImage" alt="" width="268" height="134" />
+                                    <h2>NRs @pdt.DiscountedPrice</h2>
+                                    <p>@pdt.ProductName</p>
+                                    <a href="@Url.Action("Index", "Detail", new { productId = pdt.ProductID })" class="btn btn-default add-to-cart">Detail</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                    }
+
+                </div>
+                count++;
+            }
+        }
+
+    </div>
+</div>

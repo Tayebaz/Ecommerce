@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutWebsite.cshtml";
+}
+<div class="page_wrapper">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- - - - - - - - - - - - - - Banners - - - - - - - - - - - - - - - - -->
+            @{
+                Html.RenderAction("LoadLeftSideBarHome", "LoadPartial");
+            }
+           
+            <!-- - - - - - - - - - - - - - End of banners - - - - - - - - - - - - - - - - -->
+            <!-- - - - - - - - - - - - - - Main slider - - - - - - - - - - - - - - - - -->
+
+            <main class="col-md-9 col-sm-8">
+
+                <div class="section_offset animated transparent" data-animation="fadeInDown">
+
+                    <!-- - - - - - - - - - - - - - Revolution slider - - - - - - - - - - - - - - - - -->
+                    @{
+                        Html.RenderAction("LoadSlider", "LoadPartial");
+                    }
+                    <!-- - - - - - - - - - - - - - End of Revolution slider - - - - - - - - - - - - - - - - -->
+
+                </div><!--/ .section_offset -->
+                <!-- - - - - - - - - - - - - - Banners - - - - - - - - - - - - - - - - -->
+                @{
+                    Html.RenderAction("LoadHomeContents", "LoadPartial");
+                }              
+                <!-- - - - - - - - - - - - - - End of Medicine & Health - - - - - - - - - - - - - - - - -->
+
+            </main><!--/ [col]-->
+            <!-- - - - - - - - - - - - - - End of main slider - - - - - - - - - - - - - - - - -->
+
+        </div><!--/ .row-->
+
+    </div><!--/ .container-->
+
+</div>

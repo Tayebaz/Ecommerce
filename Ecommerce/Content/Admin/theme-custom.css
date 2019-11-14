@@ -1,0 +1,16 @@
+/* Add here all your CSS customizations */
+.modal-dialog .panel-footer {
+    margin: 0 !important;
+}
+
+.modal-dialog .panel-body {
+    border-radius: 0px !important;
+}
+
+.welcometext {
+    min-height: 450px;
+    text-align: center;
+    padding-top: 200px;
+    font-size: 110px;
+    opacity: 0.2;
+}

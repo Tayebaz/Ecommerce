@@ -1,0 +1,60 @@
+﻿@model Ecommerce.Models.UserViewModel
+@{
+    ViewBag.MainTitle = "Users";
+}
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    <h2 class="panel-title">@(Model.FirstName + " " + Model.LastName)</h2>
+                </header>
+                <div class="panel-body">
+                    <div class="tabs">
+                        <ul class="nav nav-tabs" data-tabs="tabs" id="myTab">
+                            <li class="active"><a id="lnkOverview" href="#overview" data-toggle="tab">Overview</a></li>
+                            <li><a id="lnkEdit" href="#editProfile" data-toggle="tab">Edit User</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane active" id="overview">
+                                <script type="text/javascript">
+                                    $('#lnkOverview').click(function () {
+                                        location.hash = this.getAttribute("href");
+                                        $.get('/Admin/User/Overview/@Model.TokenKey').done(function (result) {
+                                            $('#overview').html(result);
+                                        });
+                                    });
+                                </script>
+                            </div>
+                            <div class="tab-pane" id="editProfile">
+                                <script type="text/javascript">
+                                    $('#lnkEdit').click(function () {
+                                        location.hash = this.getAttribute("href");
+                                        $.get('/Admin/User/Edit/@Model.TokenKey').done(function (result) {
+                                            $('#editProfile').html(result);
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {        
+        $.get('/Admin/User/Overview/@Model.TokenKey').done(function (result) {
+            $('#overview').html(result);
+        });
+
+        if (location.hash) {
+            $('a[href=' + location.hash + ']').tab('show');
+            $('a[href=' + location.hash + ']').click();
+        }
+    });
+</script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>

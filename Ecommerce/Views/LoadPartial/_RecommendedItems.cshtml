@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Ecommerce.Models.ProductViewModel>
+<div class="recommended_items">
+    <!--recommended_items-->
+    <h2 class="title text-center">recommended items</h2>
+
+    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @{
+                var productList = Model.ToList();
+                var carrouselCount = Math.Ceiling((double)productList.Count() / 3);
+                for (int i = 0; i < carrouselCount; i++)
+                {
+                    var activeClass = "";
+                    if (i == 0)
+                    {
+                        activeClass = "active";
+                    }
+                    <div class="item @activeClass">
+                        @for (int j = i*3; j < i + 3; j++)
+                        {
+                            if (j >= productList.Count())
+                            {
+                                break;
+                            }
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            @{
+                                                var productImage = "";
+                                                if (productList[j].ImageList.Count > 0)
+                                                {
+                                                    productImage = productList[j].ImageList[0].Images;
+                                                }
+                                            }
+                                            <img src="@productImage" alt="" width="268" height="134"/>                                          
+                                            <h2>NRs @productList[j].DiscountedPrice</h2>
+                                            <p>@productList[j].ProductName</p>
+                                            <a href="@Url.Action("Index", "Detail", new { productId = productList[j].ProductID })" class="btn btn-default add-to-cart">Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }        
+        </div>
+        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
+</div><!--/recommended_items-->

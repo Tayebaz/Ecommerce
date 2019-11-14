@@ -1,0 +1,404 @@
+﻿@model Ecommerce.Models.ProductViewModel
+@using Commom.GlobalMethods;
+@{
+    Layout = "~/Views/Shared/_LayoutWebsite.cshtml";
+}
+<link rel="stylesheet" href="~/Scripts/js/fancybox/source/jquery.fancybox.css">
+<link rel="stylesheet" href="~/Scripts/js/fancybox/source/helpers/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="~/Scripts/js/arcticmodal/jquery.arcticmodal.css">
+<link rel="stylesheet" href="~/Scripts/js/owlcarousel/owl.carousel.css">
+
+<div class="secondary_page_wrapper">
+
+    <div class="container">
+
+        <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <ul class="breadcrumbs">
+
+            @{
+                var category = string.Empty;
+                foreach (var breadcrumb in ViewBag.BreadCrumb as List<KeyValuePair<string, string>>)
+                {
+                    if (string.IsNullOrEmpty(breadcrumb.Value))
+                    {
+                        category = breadcrumb.Key;
+                        <li>@breadcrumb.Key</li>
+                    }
+                    else
+                    {
+                        <li><a href="@breadcrumb.Value">@breadcrumb.Key</a></li>
+                    }
+                }
+            }
+
+        </ul>
+
+        <!-- - - - - - - - - - - - - - End of breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <div class="row">
+
+            <main class="col-md-12 col-sm-12">
+
+                <section class="section_offset">
+
+                    <div class="clearfix">
+
+                        <div class="single_product">
+
+                            <div class="image_preview_container">
+
+                                @{
+                                    var productImage = "";
+                                    if (Model.ImageList.Count > 0)
+                                    {
+                                        productImage = Model.ImageList[0].Images;
+                                    }
+                                }
+                                <img id="img_zoom" data-zoom-image="@productImage" src="@productImage" alt="">
+
+                                <button class="button_grey_2 icon_btn middle_btn open_qv"><i class="icon-resize-full-6"></i></button>
+
+                            </div>
+                            <div class="product_preview">
+
+                                <div class="owl_carousel" id="thumbnails">
+                                    @{
+                                        var imageList = Model.ImageList;
+                                        for (int i = 0; i < imageList.Count(); i++)
+                                        {
+                                            <a href="#" data-image="@imageList[i].Images" data-zoom-image="@imageList[i].Images">
+
+                                                <img src="@imageList[i].Images" data-large-image="@imageList[i].Images" alt="">
+
+                                            </a>
+
+                                        }
+                                    }
+
+                                </div>
+
+                            </div>
+                            <!-- - - - - - - - - - - - - - Share - - - - - - - - - - - - - - - - -->
+
+                            <div class="v_centered">
+
+                                <span class="title">Share this:</span>
+
+                                <div class="addthis_widget_container">
+                                    <!-- AddThis Button BEGIN -->
+                                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                                        <a class="addthis_button_preferred_1"></a>
+                                        <a class="addthis_button_preferred_2"></a>
+                                        <a class="addthis_button_preferred_3"></a>
+                                        <a class="addthis_button_preferred_4"></a>
+                                        <a class="addthis_button_compact"></a>
+                                        <a class="addthis_counter addthis_bubble_style"></a>
+                                    </div>
+                                    <!-- AddThis Button END -->
+                                </div>
+
+                            </div>
+
+                            <!-- - - - - - - - - - - - - - End of share - - - - - - - - - - - - - - - - -->
+
+                        </div>
+
+                        <div class="single_product_description">
+
+                            <h3 class="offset_title"><a>@Model.ProductName</a></h3>
+
+                            <div class="description_section">
+
+                                <table class="product_info">
+
+                                    <tbody>
+                                        <tr>
+
+                                            <td>Product Code: </td>
+                                            <td>@Model.ProductCode</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>Availability: </td>
+
+                                            <td><span class="in_stock">@(((Enumerator.Availability)Model.Availability).DescriptionAttr())</span></td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>Sauce: </td>
+                                            <td>
+                                                @foreach (var size in Model.ProductSizeList)
+                                                {
+                                                    if (Model.SizeId == size.Id)
+                                                    {
+                                                        <input type="radio" data-price="@size.Price" checked="checked" name="Size" value="@size.Id" /> @(size.Size + "($" + size.Price + ")")
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="radio" data-price="@size.Price" name="Size" value="@size.Id" /> @(size.Size + "($" + size.Price + ")")
+                                                    }
+                                                }
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td>Attributes: </td>
+                                            <td>
+                                                @foreach (var attr in Model.ProductAttributeList)
+                                                {
+                                                    if (Model.Attributes.Split('`').Select(c => Convert.ToInt32(c == "" ? "0" : c)).Contains(attr.Id))
+                                                    {
+                                                        <input type="checkbox" checked="checked" data-price="@attr.Price" name="Attributes" value="@attr.Id" /> @(attr.Attributes + "($" + attr.Price + ")")
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" data-price="@attr.Price" name="Attributes" value="@attr.Id" /> @(attr.Attributes + "($" + attr.Price + ")")
+                                                    }
+                                                }
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                            <hr>
+
+                            <div class="description_section">
+
+                                <p>@Model.ShortDescription</p>
+
+                            </div>
+
+                            <hr>
+                            <div class="description_section_2 v_centered">
+
+                                <span class="title">Qty:</span>
+
+                                <div class="qty min clearfix">
+
+                                    <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">&#45;</button>
+                                    <input id="txtQuantity" type="text" name="quant[1]" class="form-control input-number" value="@Model.ProductQuantity" min="1" max="100">
+                                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">&#43;</button>
+                                </div>
+
+                            </div>
+                            <p class="product_price">
+                                @*@if (Model.DiscountedPrice != Model.Price)
+                                {
+                                    <s>NRs <span id="price">@Model.Price</span></s>
+                                }*@
+                                <b class="theme_color">$ <span id="discountprice">@Model.Price</span></b>
+                            </p>
+
+
+
+                            <div class="buttons_row">
+
+                                <button id="btnAddToCart" class="button_blue middle_btn" data-productid="@Model.ProductID">Add to Cart</button>
+
+                                @*<button id="btnAddToWishlist" class="button_dark_grey def_icon_btn middle_btn add_to_wishlist tooltip_container" data-productid="@Model.ProductID"><span class="tooltip top">Add to Wishlist</span></button>
+
+                                <button id="btnAddToCompare" class="button_dark_grey def_icon_btn middle_btn add_to_compare tooltip_container" data-productid="@Model.ProductID"><span class="tooltip top">Add to Compare</span></button>*@
+
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <div class="section_offset">
+
+                    <div class="tabs type_2">
+
+
+
+                        <ul class="tabs_nav clearfix">
+
+                            <li><a href="#tab-1">Description</a></li>
+                        </ul>
+
+
+                        <div class="tab_containers_wrap">
+
+
+                            <div id="tab-1" class="tab_container">
+
+                                <p>@Html.Raw(HttpUtility.HtmlDecode(Model.Description))</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+
+        $('#btnAddToCart').click(function (e) {
+            e.preventDefault();
+            var productId = $(this).attr('data-productid');
+            var quantity = $('#txtQuantity').val();
+            var size = $("input[name='Size']:checked").val();
+            var attributesArray = [];
+            $.each($("input[name='Attributes']:checked"), function () {
+                attributesArray.push($(this).val());
+            });
+            var attributes = attributesArray.join("`");
+            var url = "../Product/ProductAddToCart?productid=" + productId + "&quantity=" + quantity + "&size=" + size + "&attributes=" + attributes;
+            $.get(url).done(function (result) {
+                window.location.reload();
+            });
+        });
+
+        $('#btnAddToWishlist').click(function (e) {
+            e.preventDefault();
+            var productId = $(this).attr('data-productid');
+            var size = $("input[name='Size']:checked").val();
+            var attributesArray = [];
+            $.each($("input[name='Attributes']:checked"), function () {
+                attributesArray.push($(this).val());
+            });
+            var attributes = attributesArray.join("`");
+            var url = "../Product/AddToWishList?productid=" + productId + "&size=" + size + "&attributes=" + attributes;
+            $.get(url).done(function (result) {
+                window.location.reload();
+            });
+        });
+
+        $('#btnAddToCompare').click(function (e) {
+            e.preventDefault();
+            var productId = $(this).attr('data-productid');
+            var size = $("input[name='Size']:checked").val();
+            var attributesArray = [];
+            $.each($("input[name='Attributes']:checked"), function () {
+                attributesArray.push($(this).val());
+            });
+            var attributes = attributesArray.join("`");
+            var url = "../Product/AddToCompareList?productid=" + productId + "&size=" + size + "&attributes=" + attributes;
+            $.get(url).done(function (result) {
+                window.location.reload();
+            });
+        });
+
+    });
+</script>
+
+<script src="~/Scripts/js/jquery.elevateZoom-3.0.8.min.js"></script>
+<script src="~/Scripts/js/fancybox/source/jquery.fancybox.pack.js"></script>
+<script src="~/Scripts/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+<script src="~/Scripts/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+
+<script>
+    $('.btn-number').click(function (e) {
+        e.preventDefault();
+
+        fieldName = $(this).attr('data-field');
+        type = $(this).attr('data-type');
+        var input = $("input[name='" + fieldName + "']");
+        var currentVal = parseInt(input.val());
+        if (!isNaN(currentVal)) {
+            if (type == 'minus') {
+
+                if (currentVal > input.attr('min')) {
+                    input.val(currentVal - 1).change();
+                }
+                if (parseInt(input.val()) == input.attr('min')) {
+                    $(this).attr('disabled', true);
+                }
+
+            } else if (type == 'plus') {
+
+                if (currentVal < input.attr('max')) {
+                    input.val(currentVal + 1).change();
+                }
+                if (parseInt(input.val()) == input.attr('max')) {
+                    $(this).attr('disabled', true);
+                }
+
+            }
+        } else {
+            input.val(0);
+        }
+    });
+    $('.input-number').focusin(function () {
+        $(this).data('oldValue', $(this).val());
+    });
+    $('.input-number').change(function () {
+
+        minValue = parseInt($(this).attr('min'));
+        maxValue = parseInt($(this).attr('max'));
+        valueCurrent = parseInt($(this).val());
+
+        name = $(this).attr('name');
+        if (valueCurrent >= minValue) {
+            $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+        } else {
+            alert('Sorry, the minimum value was reached');
+            $(this).val($(this).data('oldValue'));
+        }
+        if (valueCurrent <= maxValue) {
+            $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+        } else {
+            alert('Sorry, the maximum value was reached');
+            $(this).val($(this).data('oldValue'));
+        }
+        CalculatePrice();
+
+    });
+    $(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+            // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // let it happen, don't do anything
+            return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+    $("input[name='Size']").change(function () {
+        CalculatePrice();
+    });
+
+    $("input[name='Attributes']").click(function () {
+        CalculatePrice();
+    });
+
+    function CalculatePrice() {
+        var quantity = parseInt($('#txtQuantity').val());
+        var size = parseInt($("input[name='Size']:checked").data("price"));
+        var attrprice = 0;
+        $.each($("input[name='Attributes']:checked"), function () {
+            attrprice = attrprice + parseInt($(this).data("price"));
+        });
+        var totalPrice = quantity * (size + attrprice);
+        var discountpercent = parseFloat('@Model.Price');
+        totalPrice = totalPrice + discountpercent;
+        $('#price').html(totalPrice);
+        $('#discountprice').html(totalPrice);
+    };
+</script>

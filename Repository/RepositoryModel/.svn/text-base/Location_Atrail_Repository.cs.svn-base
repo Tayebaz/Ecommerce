@@ -1,0 +1,20 @@
+﻿using Entities.Models;
+using Repository.RepositoryFactoryBase;
+using Repository.RepositoryFactoryCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repository.RepositoryModel
+{
+    public class Location_Atrail_Repository : RepositoryFactory<Locations_ATrail>
+    {
+        public Location_Atrail_Repository(IDatabaseFactory databaseFactyory)
+            : base(databaseFactyory)
+        {
+
+        }
+    }
+}

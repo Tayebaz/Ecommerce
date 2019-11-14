@@ -1,0 +1,19 @@
+﻿
+using Entities.Models;
+using Repository.RepositoryFactoryBase;
+using Repository.RepositoryFactoryCore;
+using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repository.RepositoryModel
+{
+   public class RegionRepository : RepositoryFactory<Region>
+    {
+        public RegionRepository(IDatabaseFactory databaseFactory)
+            : base(databaseFactory) { }
+    }
+  
+}

@@ -1,0 +1,116 @@
+﻿@model Ecommerce.Models.ProductViewModel
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Product Images</h2>
+                <div class="panel-actions">
+                    @using (Html.BeginForm("uploadimage", "Product", FormMethod.Post, new { id = "frmUploadImage", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                    {
+                        @Html.HiddenFor(m => m.TokenKey)
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div id="form">
+                            <div class="form-group">
+                                @Html.Label("Upload Image", new { @class = "col-md-4 control-label" })
+                                <div class="col-md-6">
+                                    <input type="file" name="files" value="" multiple="multiple" accept="image/gif, image/jpeg,image/png" />
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="btnUploadImage" type="button" class="btn btn-primary pull-right" value="Add" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @*<button class="btn btn-primary" id="lnkCreateEventImage"><i class="fa fa-plus"></i> Add New Image</button>*@
+                </div>
+            </header>
+            <div class="panel-body">
+                <div id="parent">
+                    @foreach (var item in Model.ImageList)
+                    {
+                        <div class="idwrap isotope-item document col-sm-6 col-md-4 col-lg-3">
+                            <div class="thumbnail">
+                                <div class="img-wrap thumb-preview">
+                                    <a href="#" class="thumb-image">
+                                        <img src="@item.Images" width="100" height="200" data-id=@item.ImageId />
+                                    </a>
+                                    <div class="mg-thumb-options">
+                                        <div class="mg-options close"><a id='lnkDelete' data='@(item.ImageId)' class="icons" data-toggle="tooltip" data-original-title="Delete" data-placement="top"><span class="glyphicon glyphicon-remove"></span></a></div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="table-responsive">
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<link href="~/Content/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on("click", "#btnUploadImage", function (e) {
+            var formData = new FormData($("#frmUploadImage")[0]);
+            var url = "/Admin/Product/uploadimage";
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                success: function (data) {
+                    window.location.reload();
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
+
+        $(document).on('click', '#lnkDelete', function (e) {
+            e.preventDefault();
+            
+            var token = $(this).attr("data");
+            if (token != "") {
+                swal({
+                    title: "Delete product Image",
+                    text: "Are you sure you want to delete selected product image?",
+                    type: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    closeOnConfirm: true
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var urlData = { token: token };
+                        $.get("/Admin/Product/DeleteProductImage", urlData).done(function (resultData) {
+                            var resultObj = JSON.parse(resultData);
+                            if (resultObj.isSuccess == "True") {
+                                toastr.success(resultObj.message);
+                            }
+                            else {
+                                toastr.error(resultObj.message);
+                            }
+                            window.location.reload(true);
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+
+

@@ -1,0 +1,246 @@
+﻿
+<!doctype html>
+<html class="fixed">
+<head>
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    @{
+        var setting = Commom.GlobalMethods.GlobalMethods.NewInstance().GetSetting();
+    }
+    <title>@setting.CompanyName | @ViewBag.MainTitle</title>
+    <meta name="keywords" content="@setting.PageTitle" />
+    <meta name="description" content="@setting.PageDescription">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+    <!-- Vendor CSS -->
+
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/Admin/theme.css" rel="stylesheet" />
+    <link href="~/Content/Admin/default.css" rel="stylesheet" />
+    <link href="~/Content/Admin/theme-custom.css" rel="stylesheet" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <link href="~/Content/sweet-alert.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/modernizr.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/Scripts/sweet-alert.min.js"></script>
+</head>
+<body>
+    <section class="body">
+        <!-- start: header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="javascript:void(0)" class="logo">
+                    <img src="@Url.Action("GetLogo", "AdminSetting", new { area = "Admin" })" height="45" alt="Himalayan Salt Nepal" />
+                </a>
+                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <!-- start: search & user box -->
+            <div class="header-right">
+                @*@Html.Action("ProductNotification", "AdminProduct", new { area = "Admin" })*@
+                <span class="separator"></span>
+
+                <div id="userbox" class="userbox">
+                    <a href="#" data-toggle="dropdown">
+                        <figure class="profile-picture">
+                            <img src="@Url.Action("GetUserImage", "AdminUser", new { area="Admin", tkn = "loggedinUser" })" alt="Joseph Doe" class="img-circle" style="height:48px;width:48px;" />
+                        </figure>
+                        <div class="profile-info">
+                            <span class="name">@Filters.AuthenticationModel.GlobalUser.getGlobalUser().FirstName</span>
+                            <span class="role">@Filters.AuthenticationModel.GlobalUser.getGlobalUser().UserType</span>
+                        </div>
+
+                        <i class="fa custom-caret"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul class="list-unstyled">
+                            <li class="divider"></li>
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="@Url.Action("UserProfile", "AdminUser", new { area = "Admin" })"><i class="fa fa-user"></i> My Profile</a>
+                            </li>                         
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="@Url.Action("LogOff", "AdminAccount", new { area = "Admin" })"><i class="fa fa-power-off"></i> Logout</a>
+                            </li>                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end: search & user box -->
+        </header>
+        <!-- end: header -->
+        <div class="inner-wrapper">
+            <!-- start: sidebar -->
+            <aside id="sidebar-left" class="sidebar-left">
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+                        Navigation
+                    </div>
+                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                    </div>
+                </div>
+                <div class="nano">
+                    <div class="nano-content">
+                        <nav id="menu" class="nav-main" role="navigation">
+                            <ul class="nav nav-main">
+                                <li>
+                                    <a href="@Url.Action("Index", "AdminOrderDetails", new { area = "Admin" })">
+                                        <i class="fa fa-home" aria-hidden="true"></i>
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "AdminUser", new { area = "Admin" })">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>User</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "AdminCategory", new { area = "Admin" })">
+                                        <i class="fa fa-th-list" aria-hidden="true"></i>
+                                        <span>Category</span>
+                                    </a>
+                                </li>
+                                @*<li class="nav-parent">
+                                    <a>
+                                        <i class="fa fa-th-list" aria-hidden="true"></i>
+                                        <span>Category</span>
+                                    </a>
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a href="@Url.Action("Index", "AdminCategory", new { area = "Admin" })">
+                                                <span>Category</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Index", "AdminSubCategory", new { area = "Admin" })">
+                                                <span>SubCategory</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>*@
+                                @*<li>
+            <a href="@Url.Action("Index", "AdminBrand", new { area = "Admin" })">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+                <span>Brand</span>
+            </a>
+        </li>*@
+                                <li>
+                                    <a href="@Url.Action("Index", "AdminProduct", new { area = "Admin" })">
+                                        <i class="fa fa-barcode" aria-hidden="true"></i>
+                                        <span>Product</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="@Url.Action("Index", "AdminHelp", new { area = "Admin" })">
+                                        <i class="fa fa-question" aria-hidden="true"></i>
+                                        <span>Help</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "AdminSliderSetting", new { area = "Admin" })">
+                                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                                        <span>Slider Setting</span>
+                                    </a>
+                                </li>
+                                @*<li class="nav-parent">
+            <a>
+                <i class="fa fa-file-text" aria-hidden="true"></i>
+                <span>Orders</span>
+            </a>
+            <ul class="nav nav-children">
+                <li>
+                    <a href="@Url.Action("Index", "AdminOrderDetails", new { area = "Admin" })">
+                        <span>New Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("PendingOrder", "AdminOrderDetails", new { area = "Admin" })">
+                        <span>Pending Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("CancelledOrder", "AdminOrderDetails", new { area = "Admin" })">
+                        <span>Cancelled Order</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("DeliveredOrder", "AdminOrderDetails", new { area = "Admin" })">
+                        <span>Deliverd Order</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("AllOrders", "AdminOrderDetails", new { area = "Admin" })">
+                        <span>All Order</span>
+                    </a>
+                </li>
+            </ul>
+        </li>*@
+                            </ul>
+                        </nav>
+                        <hr class="separator" />
+
+                        <div class="sidebar-widget widget-tasks">
+                            <div class="widget-header">
+                                <h6>Application</h6>
+                                <div class="widget-toggle">+</div>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="list-unstyled m-none">
+                                    <li><a href="/Admin/Setting">Settings</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- end: sidebar -->
+
+            <section role="main" class="content-body">
+                <header class="page-header">
+                    <h2>@ViewBag.MainTitle</h2>
+
+                    @*<div class="right-wrapper pull-right">
+                        <ol class="breadcrumbs">
+                            <li>
+                                <a href="~/Dashboard/Index">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li><span>Dashboard</span></li>
+                        </ol>
+
+                    </div>*@
+                </header>
+                <!-- start: page -->
+                @RenderBody()
+                <!-- end: page -->
+            </section>
+        </div>
+
+    </section>
+
+    <!-- Vendor -->
+    <script src="~/Scripts/jquery.browser.mobile.js"></script>
+    <script src="~/Scripts/nanoscroller.js"></script>
+    <script src="~/Scripts/theme.js"></script>
+
+
+    @*<Success or Failure Messages>*@
+    <input id="hdn-successMsg" type="hidden" value="@TempData["Success"]" />
+    <input id="hdn-isSuccessMsg" type="hidden" value="@TempData["isSuccess"]" />
+    @*<Success or Failure Messages>*@
+
+    <script src="~/Scripts/CustomJavascripts/Layout.js"></script>
+</body>
+</html>

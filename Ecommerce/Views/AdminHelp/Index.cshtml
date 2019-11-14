@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.MainTitle = "Help";
+}
+<script src="~/Scripts/tinymce/tinymce.min.js"></script>
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        @*<section class="content-with-menu no-toolbar media-gallery">
+            <div class="content-with-menu-container">
+
+                <div class="inner-body mg-main">*@
+        <section class="">
+            <div class="">
+
+                <div class="mg-main">
+                    <div class="inner-toolbar clearfix">
+                        <ul>
+                            <li class="right" data-sort-source data-sort-id="media-gallery">
+                                <ul id="ulHelp" class="nav nav-pills nav-pills-primary">
+                                    <li><label>Help:</label></li>
+                                    <li class="active">
+                                        <a id="lnkAbout" data-type="About" href="javascript:void(0)">About</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkContact" data-type="Contact" href="javascript:void(0)">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkPrivacyPolicy" data-type="PrivacyPolicy" href="javascript:void(0)">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a id="lnkTerms" data-type="Terms" href="javascript:void(0)">Terms & Conditions</a>
+                                    </li>                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mg-files" data-sort-destination data-sort-id="media-gallery">
+                        <section class="panel" style="margin-top:55px;">
+                            <header class="panel-heading">
+                                <h2 id="helpTitle" class="panel-title">@(ViewBag.helpType)</h2>
+                                <div class="panel-actions">
+                                    <a class="btn btn-primary" style="display:inline" id="lnkChangeContent"><i class="fa fa-edit"></i> Change Content</a>
+                                    
+                                </div>
+                            </header><div class="modal fade" id="modalChangeContent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="z-index:1100">
+        @using (Html.BeginForm("ChangeContent", "AdminHelp", FormMethod.Post, new { area="Admin", id = "frmChange", enctype = "multipart/form-data" }))
+        {
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Change Content</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="hidden" name="Contents" id="Contents" value="" />
+                        <textarea id="textarea-Contents"></textarea>
+                        <span class="text-danger field-validation-valid" data-valmsg-replace="true" data-valmsg-for="textarea-Contents"></span>
+                    </div>
+                    <input type="hidden" name="ContentType" id="ContentType" value="About" />
+                </div>
+                <div class="modal-footer">
+                    <button onclick="Javascript: ChangeContent();" class="btn btn-primary">Change</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+                            <div class="panel-body" id="helpContent">
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script type="text/javascript">
+    tinymce.init({
+        selector: "#textarea-Contents", theme: "modern", height: 300,
+        menubar: false,
+        plugins: [
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking",
+                "table contextmenu directionality emoticons paste textcolor"
+        ],
+        toolbar: " bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | code",
+    });
+
+    $(document).ready(function (e) {
+        var helpType = "@ViewBag.helpType";
+        var data = { helpType: helpType }
+        $("#ulHelp li").each(function (e) {
+            if ($(this).find("a").attr('data-type') == helpType) {
+                $(this).addClass("active");
+                $(this).siblings().removeClass("active");
+                $("#helpTitle").html(helpType);
+            }
+        });
+
+        $.get('/Admin/Help/LoadContent', data).done(function (result) {
+            $('#helpContent').html(result);            
+        });
+
+        $('#lnkAbout').click(function (e) {
+            $(this).parent("li").addClass("active");
+            $(this).parent("li").siblings().removeClass("active");
+            var data = { helpType: "About" }
+            $.get('/Admin/Help/LoadContent', data).done(function (result) {
+                $('#helpContent').html(result);
+                $("#helpTitle").html("About");
+            });
+        });
+
+        $('#lnkContact').click(function (e) {
+            $(this).parent("li").addClass("active");
+            $(this).parent("li").siblings().removeClass("active");
+            var data = { helpType: "Contact" }
+            $.get('/Admin/Help/LoadContent', data).done(function (result) {
+                $('#helpContent').html(result);
+                $("#helpTitle").html("Contact");
+            });
+        });
+
+        $('#lnkPrivacyPolicy').click(function (e) {
+            $(this).parent("li").addClass("active");
+            $(this).parent("li").siblings().removeClass("active");
+            var data = { helpType: "PrivacyPolicy" }
+            $.get('/Admin/Help/LoadContent', data).done(function (result) {
+                $('#helpContent').html(result);
+                $("#helpTitle").html("Privacy Policy");
+            });
+        });
+
+        $('#lnkTerms').click(function (e) {
+            $(this).parent("li").addClass("active");
+            $(this).parent("li").siblings().removeClass("active");
+            var data = { helpType: "Terms" }
+            $.get('/Admin/Help/LoadContent', data).done(function (result) {
+                $('#helpContent').html(result);
+                $("#helpTitle").html("Terms & Conditions");
+            });
+        });
+        $('#lnkCareer').click(function (e) {
+            $(this).parent("li").addClass("active");
+            $(this).parent("li").siblings().removeClass("active");
+            var data = { helpType: "Careers" }
+            $.get('/Admin/Help/LoadContent', data).done(function (result) {
+                $('#helpContent').html(result);
+                $("#helpTitle").html("Careers");
+            });
+        });
+
+        $('#lnkChangeContent').click(function (e) {          
+            $('#modalChangeContent').modal("show");
+            tinyMCE.editors[0].setContent( $('#helpContent').html());
+        });
+    });
+
+    function ChangeContent() {       
+        var editorValue = $('<div/>').text(tinyMCE.editors[0].getContent()).html();       
+        $('#Contents').val(editorValue);
+
+        var helpType = $("#ulHelp li.active a").attr('data-type');
+        $("#ContentType").val(helpType);
+    }
+</script>
+
+
+

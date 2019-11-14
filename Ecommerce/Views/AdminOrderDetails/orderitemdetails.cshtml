@@ -1,0 +1,187 @@
+﻿@model Ecommerce.Models.OrderViewModel
+@{
+    ViewBag.MainTitle = "Order Detail";
+}
+<div class="row">
+    <div class="col-md-12">
+        <section id="cart_items">
+            <form>
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="shopper-informations">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="shopper-info">
+                                        <strong>Shopper Information</strong>
+                                        <table class="table table-condensed">
+                                            <tbody>
+                                                <tr>
+                                                    <td>First Name:</td>
+                                                    <td>@Html.DisplayFor(x => x.FirstName, new { @class = "form-control" })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Last Name:</td>
+                                                    <td>@Html.DisplayFor(x => x.LastName, new { @class = "form-control" })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email:</td>
+                                                    <td>@Html.DisplayFor(x => x.Email, new { @class = "form-control" })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phone:</td>
+                                                    <td>@Html.DisplayFor(x => x.Phone, new { @class = "form-control" })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mobile Phone:</td>
+                                                    <td>@Html.DisplayFor(x => x.MobilePhone, new { @class = "form-control" })</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                @*<div class="col-sm-4 clearfix">
+                                    <div class="shopper-info">
+                                        <strong>Delivery Address</strong>
+                                        <table class="table table-condensed">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Address:</td>
+                                                    <td>@Html.DisplayFor(x => x.Address, new { @class = "form-control" })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pincode:</td>
+                                                    <td>@Html.DisplayFor(x => x.Pincode, new { @class = "form-control" })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>City:</td>
+                                                    <td>@Html.DisplayFor(x => x.City, new { @class = "form-control" })</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>*@
+                                <div class="col-sm-4">
+                                    <div class="order-message">
+                                        <strong>Shipping Order</strong>
+                                        <table class="table table-condensed">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Order Code:</td>
+                                                    <td>@Html.DisplayFor(x => x.OrderCode, new { @class = "form-control" })</td>
+                                                </tr>
+                                                @*<tr>
+                                                    <td>Ordered Status:</td>
+                                                    <td>@Html.DisplayFor(x => x.OrderStatus, new { @class = "form-control" })</td>
+                                                </tr>*@
+                                                <tr>
+                                                    <td>Ordered Date:</td>
+                                                    <td>@Model.OrderDate.ToShortDateString()</td>
+                                                </tr>
+                                                @*<tr>
+                                                    <td>Description:</td>
+                                                    <td>@Html.DisplayFor(x => x.ShippingOrder, new { @class = "form-control" })</td>
+                                                </tr>*@
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="panel">
+                    <header class="panel-heading">
+                        <h2 class="panel-title">Ordered Items</h2>
+                    </header>
+                    <div class="panel-body">
+                        <div class="table-responsive cart_info">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr class="cart_menu">
+                                        <td class="image"><strong>Item</strong></td>
+                                        <td class="description"></td>
+                                        <td class="price"><strong>Price</strong></td>
+                                        <td class="quantity"><strong>Quantity</strong></td>
+                                        <td class="total"><strong>Total</strong></td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var product in Model.orderItems)
+                                    {
+                                        <tr class="cart_product_list">
+                                            <td class="cart_product">
+
+                                                @{
+                                        var productImage = "";
+                                        if (product.ImageList.Count > 0)
+                                        {
+                                            productImage = product.ImageList[0].Images;
+                                        }
+                                                }
+                                                <img src="@productImage" alt="" height="110" width="110" />
+
+                                            </td>
+                                            <td class="cart_description">
+                                                <h4>@product.ProductName</h4>
+                                                <p>Product Code: @product.ProductCode</p>
+                                                <p><span class="size" data-size="@product.SizeId">Side: @product.Size</span></p>
+                                                <p><span class="attribute" data-attribute="@product.AttributeId">Attributes: @product.Attributes</span></p>
+                                            </td>
+                                            <td class="cart_price">
+                                                <p class="cart_unit_price">$ <span>@product.DiscountedPrice</span></p>
+                                            </td>
+                                            <td class="cart_quantity">
+                                                <p class="cart_quantity_input"><span>@product.quantity</span></p>
+                                            </td>
+                                            <td class="cart_total">
+                                                <p class="cart_total_price">$ <span>0</span></p>
+                                            </td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td colspan="4">&nbsp;</td>
+                                        <td colspan="2">
+                                            <table class="table table-condensed total-result">
+                                                <tr>
+                                                    <td>Sub Total</td>
+                                                    <td><span id="sub_total"></span></td>
+                                                </tr>
+                                                @*<tr>
+                                                        <td>Exo Tax</td>
+                                                        <td>$2</td>
+                                                    </tr>*@
+                                                <tr>
+                                                    <td>Grand Total</td>
+                                                    <td><span id="grand_total"></span></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </section>
+    </div>
+</div>
+<script>
+    $(document).ready(function (e) {
+        CalculatePrice();
+    });
+
+    var CalculatePrice = function () {
+        var total = 0.00;
+        $('.cart_product_list').each(function (e, i) {
+            var quantity = parseFloat($(this).find('.cart_quantity_input span').html());
+            var unitPrice = parseFloat($(this).find('.cart_unit_price span').html());
+            var totalPrice = quantity * unitPrice;
+            $(this).find('.cart_total_price span').html(totalPrice);
+            total = total + totalPrice;
+        });
+        $('#sub_total').html('$ ' + total);
+        $('#grand_total').html('$ ' + total);
+    }
+</script>

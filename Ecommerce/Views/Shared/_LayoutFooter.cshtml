@@ -1,0 +1,217 @@
+﻿<footer id="footer">
+    <div class="footer_section">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6">
+
+                    <h4>Category</h4>
+                    <ul class="list_of_links">
+
+                        @{
+                            Repository.RepositoryFactoryCore.DatabaseFactory _df = new Repository.RepositoryFactoryCore.DatabaseFactory();
+                            Repository.RepositoryFactoryCore.UnitOfWork _unitOfWork = new Repository.RepositoryFactoryCore.UnitOfWork(_df);
+                            Business.CategoryBusiness _categoryBusiness = new Business.CategoryBusiness(_df, _unitOfWork);
+                            var categories = _categoryBusiness.GetListWT();
+                            foreach (var category in categories)
+                            {
+                                <li><a href="@Url.Action("Index", "Product", new { categoryid = category.CategoryId})">@category.CategoryName</a></li>
+                                @*<li><a href="#">@category.CategoryName</a></li>*@
+                            }
+                        }
+
+                    </ul>
+
+                </div><!--/ [col]-->
+                <!-- - - - - - - - - - - - - - Information widget - - - - - - - - - - - - - - - - -->
+                <!--<div class="col-md-3 col-sm-6">
+
+
+
+    <section class="widget">
+
+        <h4>Information</h4>
+
+        <ul class="list_of_links">
+            <li><a href="~/About/index?helpType=About">About Us</a></li>
+            <li><a href="~/About/index?helpType=Contact">Contact Us</a></li>
+            <li><a href="~/About/index?helpType=PrivacyPolicy">Privacy Policy</a></li>
+            <li><a href="~/About/index?helpType=Terms">Terms &amp; Conditions</a></li>
+        </ul>
+
+    </section>
+              
+
+            </div>--><!--/ [col]-->
+
+            <div class="col-md-3 col-sm-6">
+
+                <!-- - - - - - - - - - - - - - Extras widget - - - - - - - - - - - - - - - - -->
+                <section class="widget">
+
+                    <h4>Contact</h4>
+
+                    <ul class="list_of_links contact-details">
+                        @{
+                            var contact = Commom.GlobalMethods.GlobalMethods.NewInstance().GetSetting();
+                            if (contact != null)
+                            {
+                                if (!string.IsNullOrEmpty(contact.Address))
+                                {
+                                    <li>
+                                        <span><i class="fa fa-home"></i>ADDRESS</span>
+                                        <p>@contact.Address</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.Phone))
+                                {
+                                    <li>
+                                        <span><i class="fa fa-phone"></i>PHONE NO</span>
+                                        <p>@contact.Phone</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.Email))
+                                {
+                                    <li>
+                                        <span><i class="fa fa-inbox"></i>EMAIL ID</span>
+                                        <p> @contact.Email</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.WebAddress))
+                                {
+                                    <li>
+                                        <span><i class="fa fa-globe"></i>WEB ADDRESS</span>
+                                        <p>@contact.WebAddress</p>
+                                    </li>
+                                }
+                            }
+                        }
+                    </ul>
+
+                </section><!--/ .widget-->
+                <!-- - - - - - - - - - - - - - End of extras widget - - - - - - - - - - - - - - - - -->
+
+            </div><!--/ [col]-->
+
+            <div class="col-md-3 col-sm-6">
+
+                <!-- - - - - - - - - - - - - - Extras widget - - - - - - - - - - - - - - - - -->
+                <section class="widget">
+
+                    <h4>Hours</h4>
+
+                    <ul class="list_of_links contact-details schedules" style="width:100%;">
+                        @{
+                            var Hours = Commom.GlobalMethods.GlobalMethods.NewInstance().GetSetting();
+                            if (Hours != null)
+                            {
+                                if (!string.IsNullOrEmpty(contact.Mon))
+                                {
+                                    <li style="width:100%; float:left;">
+                                        <span>Monday</span>
+                                        <p>@contact.Mon</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.Tue))
+                                {
+                                    <li style="width:100%; float:left;">
+                                        <span>Tuesday</span>
+                                        <p>@contact.Tue</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.Wed))
+                                {
+                                    <li style="width:100%; float:left;">
+                                        <span>Wednesday</span>
+                                        <p> @contact.Wed</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.Thur))
+                                {
+                                    <li style="width:100%; float:left;">
+                                        <span>Thursday</span>
+                                        <p>@contact.Thur</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.Fri))
+                                {
+                                    <li style="width:100%; float:left;">
+                                        <span>Friday</span>
+                                        <p>@contact.Fri</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.Sat))
+                                {
+                                    <li style="width:100%; float:left;">
+                                        <span>Saturday</span>
+                                        <p>@contact.Sat</p>
+                                    </li>
+                                }
+                                if (!string.IsNullOrEmpty(contact.Sun))
+                                {
+                                    <li style="width:100%; float:left;">
+                                        <span>Sunday</span>
+                                        <p>@contact.Sun</p>
+                                    </li>
+                                }
+                            }
+                        }
+                    </ul>
+
+                </section><!--/ .widget-->
+                <!-- - - - - - - - - - - - - - End of extras widget - - - - - - - - - - - - - - - - -->
+
+            </div><!--/ [col]-->
+            <div class="col-md-3 col-sm-6">
+
+                <!-- - - - - - - - - - - - - - Extras widget - - - - - - - - - - - - - - - - -->
+                <section class="list_of_links">
+
+                    <h4>Follow Us</h4>
+
+                    <ul class="social-bar">
+
+                        @if (!string.IsNullOrEmpty(contact.FacebookLink))
+                        {
+                            <li><a target="_blank" href="@contact.FacebookLink" title=""><img src="/Content/Admin/Images/facebook.png" alt="" /></a></li>
+                        }
+                        @if (!string.IsNullOrEmpty(contact.GoogleLink))
+                        {
+                            <li><a target="_blank" href="@contact.GoogleLink" title=""><img src="/Content/Admin/Images/google.png" alt="" /></a></li>
+                        }
+                        @if (!string.IsNullOrEmpty(contact.TwitterLink))
+                        {
+                            <li><a target="_blank" href="@contact.TwitterLink" title=""><img src="/Content/Admin/Images/twitter.png" alt="" /></a></li>
+                        }
+                    </ul>
+
+                </section><!--/ .widget-->
+                <!-- - - - - - - - - - - - - - End of extras widget - - - - - - - - - - - - - - - - -->
+
+            </div><!--/ [col]-->
+
+        </div><!--/ .row-->
+
+        </div><!--/ .container -->
+
+    </div><!--/ .footer_section_2-->
+    <!-- - - - - - - - - - - - - - End footer section- - - - - - - - - - - - - - - - -->
+
+    <hr>
+
+    <!-- - - - - - - - - - - - - - Footer section - - - - - - - - - - - - - - - - -->
+
+
+
+    <div class="footer_section_3 align_center">
+
+        <div class="container">
+            @*<p class="copyright">&copy; <a href="/">@contact.CompanyName</a>. All Rights Reserved.</p>*@
+           
+        </div><!--/ .container -->
+    </div><!-- .footer_section-->
+    <!-- - - - - - - - - - - - - - End footer section - - - - - - - - - - - - - - - - -->
+
+</footer>

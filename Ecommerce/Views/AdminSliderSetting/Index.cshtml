@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Entities.Models.SliderSetting>
+@using Common.Cryptography;
+@{
+    ViewBag.MainTitle = "Slider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Slider Settings</h2>
+                <div class="panel-actions">
+                    <button id="btn-del-selected" class="btn btn-danger" style="display:none"><i class="fa fa-trash-o"></i> Delete</button>
+                    <button class="btn btn-primary" id="lnkCreate"><i class="fa fa-plus"></i> Add New Slider</button>
+                </div>
+            </header>
+            <div class="panel-body">
+                <div id="parent">
+
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="idwrap isotope-item document col-sm-6 col-md-4 col-lg-3">
+                            <div class="thumbnail">
+                                <div class="img-wrap thumb-preview">
+                                    <a href="#" class="thumb-image">
+                                        <img src="../SliderImage/@item.SliderImage" width="100" height="200" data-id=@item.SliderId />
+                                    </a>
+                                    <div class="mg-thumb-options">
+                                        <div class="mg-zoom"><a id='lnkDelete' data='@(item.TokenKey)' class="icons" data-toggle="tooltip" data-original-title="Delete" data-placement="top"><span class="glyphicon glyphicon-remove"></span></a></div>
+                                    </div>
+                                </div>
+
+                                <p>@Html.DisplayFor(modelItem => item.Title)</p>
+                                <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                                <p>@Html.DisplayFor(modelItem => item.ImageOrder)</p>
+
+                            </div>
+                        </div>
+
+                    }
+                </div>
+                <div class="table-responsive">
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<link href="~/Content/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+@*<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on("click", "#lnkCreate", function (e) {
+            window.document.location = '/Admin/Slider/Create';
+        });
+        $(document).on('click', '#lnkDelete', function (e) {
+            e.preventDefault();
+
+            var token = $(this).attr("data");
+            if (token != "") {
+                swal({
+                    title: "Delete Slide",
+                    text: "Are you sure you want to delete selected slide?",
+                    type: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    closeOnConfirm: true
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var urlData = { token: token };
+                        $.get("../AdminSliderSetting/Delete", urlData).done(function (resultData) {
+                            var resultObj = JSON.parse(resultData);
+                            if (resultObj.isSuccess == "True") {
+                                toastr.success(resultObj.message);
+                            }
+                            else {
+                                toastr.error(resultObj.message);
+                            }
+                            window.location.reload(true);
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script> 

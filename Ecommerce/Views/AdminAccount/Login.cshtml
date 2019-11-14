@@ -1,0 +1,54 @@
+﻿@model Ecommerce.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="panel-body">
+    @using (Html.BeginForm("Login", "AdminAccount", FormMethod.Post, new { area = "Admin", @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(m => m.ReturnUrl, new { value = ViewBag.ReturnUrl })
+        <div class="form-group mb-lg">
+            <label>Email</label>
+            <div class="input-group input-group-icon">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-lg", @tabindex = "1" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                <span class="input-group-addon">
+                    <span class="icon icon-lg">
+                        <i class="fa fa-user"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group mb-lg">
+            <div class="clearfix">
+                <label class="pull-left">Password</label>
+            </div>
+            <div class="input-group input-group-icon">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", @tabindex = "2" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                <span class="input-group-addon">
+                    <span class="icon icon-lg">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8">
+            </div>
+            <div class="col-sm-4 text-right">
+                <button type="submit" class="btn btn-primary hidden-xs" tabindex="3">Sign In</button>
+            </div>
+        </div>
+
+
+        @*<p class="text-center">Don't have an account yet? <a href="pages-signup.html">Sign Up!</a>*@
+
+    }
+</div>

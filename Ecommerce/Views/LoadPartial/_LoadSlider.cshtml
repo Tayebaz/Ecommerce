@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Ecommerce.Models.SliderViewModel>
+<div class="revolution_slider">
+
+    <div class="rev_slider">
+
+        <ul>
+
+            <!-- - - - - - - - - - - - - - Slide 1 - - - - - - - - - - - - - - - - -->
+            @{
+                foreach (var slide in Model)
+                {
+                    <li data-transition="papercut" data-slotamount="7">
+
+                        <img src="@slide.SliderImage" alt="">
+
+                        <div class="caption sfl stl layer_8" data-x="right" data-y="73" data-hoffset="-60" data-easing="easeOutBack" data-speed="600" data-start="900">@slide.Title</div>
+
+                        @*<div class="caption sfl stl layer_9" data-x="right" data-y="122" data-hoffset="-60" data-easing="easeOutBack" data-speed="600" data-start="1000">For Reorders</div>*@
+
+                        <div class="caption sfl stl layer_10" data-x="right" data-y="178" data-hoffset="-60" data-easing="easeOutBack" data-speed="600" data-start="1100">@slide.Description</div>
+
+                        @*<div class="caption sfb stb" data-x="right" data-hoffset="-60" data-y="262" data-easing="easeOutBack" data-speed="700" data-start="1150">
+                                <a href="#" class="button_blue big_btn">Read More</a>
+                            </div>*@
+
+                    </li>
+                }
+            }
+        </ul>
+
+    </div><!--/ .rev_slider-->
+
+</div><!--/ .revolution_slider-->
+
+

@@ -1,0 +1,196 @@
+﻿@model Ecommerce.Models.ProductViewModel
+
+@{
+    ViewBag.MainTitle = "Product";
+}
+
+<script src="~/Scripts/tinymce/tinymce.min.js"></script>
+
+@using (Html.BeginForm("Edit", "AdminProduct", FormMethod.Post, new { id = "frmEdit", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.TokenKey)
+
+    <h4 class="mb-xlg">Product Information</h4>
+    <fieldset>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ProductName, "Product Name", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ProductCode, "Product Code", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.ProductCode, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ProductCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.CategoryId, "Category", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.CategoryId, Model.CategoryList, "Select..", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(m => m.SubCategoryId, "Sub-Category", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.SubCategoryId, Enumerable.Empty<SelectListItem>(), "Select..", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SubCategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        @*<div class="form-group">
+            @Html.Label("Brand", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.BrandId, Enumerable.Empty<SelectListItem>(), "Select..", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.BrandId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        
+        <div class="form-group">
+            @Html.LabelFor(m => m.Price, "Price $", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+       
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShortDescription, "Short Description", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.ShortDescription, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ShortDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Description", new { @class = "col-md-3 control-label" })
+            <div class="col-md-9">
+                @Html.HiddenFor(m => m.Description, new { @class = "form-control" })
+                <textarea id="productDescription" class="hide">@Html.Raw(Model.Description)</textarea>
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Availability", new { @class = "col-md-3 control-label" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.Availability, Model.AvailabilityList, "Select..", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Availability, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </fieldset>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-9 col-md-offset-3">
+                <button id="btnSave" type="button" class="btn btn-primary">Update</button>
+                @*<button type="reset" class="btn btn-default">Reset</button>*@
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        InitializeSubCategory('@Model.CategoryId');
+        InitializeBrand('@Model.CategoryId');
+
+        tinymce.init({
+            selector: "#productDescription", theme: "modern", height: 200,
+            menubar: false,
+            plugins: [
+                    "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking",
+                    "table contextmenu directionality emoticons paste textcolor"
+            ],
+            toolbar: " bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | code",
+        });
+
+        $('#CategoryId').change(function () {
+            var selectedCategory = $(this).val();
+            InitializeSubCategory(selectedCategory);
+            InitializeBrand(selectedCategory);
+        });
+
+        $(document).on("click", "#btnSave", function (e) {
+            var editorValue = $('<div/>').text(tinyMCE.editors[0].getContent()).html();
+            $('#Description').val(editorValue);
+
+            if ($("#frmEdit").valid()) {
+                var formData = new FormData($("#frmEdit")[0]);
+                var url = "/Admin/Product/Edit";
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    success: function (data) {
+                        var result = JSON.parse(data);
+                        if (result.isSuccess == "True") {
+                            toastr.success(result.message);
+                        }
+                        else {
+                            toastr.error(result.message);
+                        }
+                        window.location.reload(true);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            }
+        });
+    });
+
+    
+
+    function InitializeSubCategory(selectedCategory) {
+        if (selectedCategory != null && selectedCategory != '') {
+            //loading subcategory
+            $.getJSON('/Admin/Product/GetSubCategory/' + selectedCategory, function (subCategories) {
+                var subcategorySelect = $('#SubCategoryId');
+                subcategorySelect.empty();
+                subcategorySelect.append($('<option/>', {
+                    value: "",
+                    text: "Select.."
+                }));
+                $.each(subCategories, function (index, subcategory) {
+                    if (subcategory.value == '@Model.SubCategoryId') {
+                        subcategorySelect.append($('<option/>', { value: subcategory.value, text: subcategory.text, selected: true }));
+                    }
+                    else {
+                        subcategorySelect.append($('<option/>', { value: subcategory.value, text: subcategory.text }));
+                    }
+                });
+            });
+        }
+    }
+
+    function InitializeBrand(selectedCategory) {
+        if (selectedCategory != null && selectedCategory != '') {
+            //loading brand
+            $.getJSON('/Admin/Product/GetBrand/' + selectedCategory, function (brands) {
+                var brandSelect = $('#BrandId');
+                brandSelect.empty();
+                brandSelect.append($('<option/>', {
+                    value: "",
+                    text: "Select.."
+                }));
+                $.each(brands, function (index, brand) {
+                    if (brand.value == '@Model.BrandId') {
+                        brandSelect.append($('<option/>', { value: brand.value, text: brand.text, selected: true }));
+                    }
+                    else {
+                        brandSelect.append($('<option/>', { value: brand.value, text: brand.text }));
+                    }
+                });
+            });
+        }
+    }
+</script>
+<script src="~/Scripts/CustomJavascripts/Common.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

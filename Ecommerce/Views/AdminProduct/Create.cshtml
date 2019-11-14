@@ -1,0 +1,194 @@
+﻿@model Ecommerce.Models.ProductViewModel
+@{
+    ViewBag.MainTitle = "Product";
+}
+<script src="~/Scripts/tinymce/tinymce.min.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Create", "AdminProduct", FormMethod.Post, new { area = "Admin", @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <section class="panel">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Create Product</h2>
+                </header>
+                <div class="panel-body">
+                    <h4 class="mb-xlg">Product Information</h4>
+                    <fieldset>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ProductName, "Product Name", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ProductName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ProductCode, "Product Code", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.ProductCode, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ProductCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CategoryId, "Category", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(model => model.CategoryId, Model.CategoryList, "Select..", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            @Html.LabelFor(m => m.SubCategoryId, "Sub-Category", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(model => model.SubCategoryId, Enumerable.Empty<SelectListItem>(), "Select..", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.SubCategoryId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                        @*<div class="form-group">
+                            @Html.Label("Brand", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(model => model.BrandId, Enumerable.Empty<SelectListItem>(), "Select..", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.BrandId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Price, "Price $", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ShortDescription, "Short Description", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.ShortDescription, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ShortDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Description", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-9">
+                                @Html.HiddenFor(m => m.Description, new { @class = "form-control" })
+                                <textarea id="productDescription" class="hide">@Html.Raw(Model.Description)</textarea>
+                                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Availability", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(model => model.Availability, Model.AvailabilityList, "Select..", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Availability, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ImageUpload, "Upload Images", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                <input id="ImageUpload" type="file" name="files" value="" multiple="multiple" accept="image/gif, image/jpeg,image/png" />
+                                @Html.ValidationMessageFor(m => m.ImageUpload, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-md-offset-3" id="images">
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-9 col-md-offset-3">
+                            <input type="submit" onclick="return Post();" class="btn btn-primary pull-right" value="Create" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </div>
+</div>
+
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+<script src="~/Scripts/CustomJavascripts/Common.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        tinymce.init({
+            selector: "#productDescription", theme: "modern", height: 200,
+            menubar: false,
+            plugins: [
+                    "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code insertdatetime media nonbreaking",
+                    "table contextmenu directionality emoticons paste textcolor"
+            ],
+            toolbar: " bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | code",
+        });
+
+
+        $("#ImageUpload").change(function () {
+            $('#images').html('');
+            imagesPreview(this, $('#images'));
+        });
+
+        $('#CategoryId').change(function () {
+            var selectedCategory = $(this).val();
+            if (selectedCategory != null && selectedCategory != '') {
+                //loading subcategory
+                $.getJSON('/Admin/Product/GetSubCategory/' + selectedCategory, function (subCategories) {
+                    var subcategorySelect = $('#SubCategoryId');
+                    subcategorySelect.empty();
+                    subcategorySelect.append($('<option/>', {
+                        value: "",
+                        text: "Select.."
+                    }));
+                    $.each(subCategories, function (index, subcategory) {
+                        subcategorySelect.append($('<option/>', {
+                            value: subcategory.value,
+                            text: subcategory.text
+                        }));
+                    });
+                });
+
+                //loading brand
+                $.getJSON('/Admin/Product/GetBrand/' + selectedCategory, function (brands) {
+                    var brandSelect = $('#BrandId');
+                    brandSelect.empty();
+                    brandSelect.append($('<option/>', {
+                        value: "",
+                        text: "Select.."
+                    }));
+                    $.each(brands, function (index, brand) {
+                        brandSelect.append($('<option/>', {
+                            value: brand.value,
+                            text: brand.text
+                        }));
+                    });
+                });
+            }
+        });
+      
+    });
+
+   
+
+    function Post() {
+        var editorValue = $('<div/>').text(tinyMCE.editors[0].getContent()).html();
+        $('#Description').val(editorValue);
+        return true;
+    }
+
+
+
+</script>
+
+
+
+

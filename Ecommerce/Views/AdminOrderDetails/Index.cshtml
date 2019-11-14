@@ -1,0 +1,226 @@
+﻿@model IEnumerable<Ecommerce.Models.OrderViewModel>
+@using Common.Cryptography;
+@{
+    ViewBag.MainTitle = "Orders";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Order List</h2>
+                <div class="panel-actions">
+                    @*<button id="btn-del-selected" class="btn btn-danger" style="display:none"><i class="fa fa-trash-o"></i>Cancel Order</button>
+                    <button id="btn-Delivered-selected" class="btn btn-success" style="display:none"><i class="fa fa-check"></i>Delivered</button>*@
+
+
+                </div>
+            </header>
+            <div class="panel-body">
+                <div class="dataTables_wrapper no-footer">
+                    <div id="parent" class="row datatables-header form-inline">
+                        <div class=" ">
+                            @Html.Label("Field Name", new { @class = "col-md-2 control-label" })
+                            <div class="col-md-3">
+                                @Html.DropDownList("colName", new List<SelectListItem>
+                            {
+                                new SelectListItem() {Text = "Select..", Value = ""},
+                                new SelectListItem() {Text = "Order Code", Value = "OrderCode"},
+                                new SelectListItem() {Text = "Order Date", Value = "OrderDate"},
+                                //new SelectListItem() {Text = "Order Status", Value = "OrderStatus"},
+                                   new SelectListItem() {Text = "Ordered Items", Value = "OrderedItems"},
+                                      new SelectListItem() {Text = "Customer Name", Value = "CustomerName"}
+                                          //new SelectListItem() {Text = "Full Address", Value = "FullAddress"}
+                            }, new { @class = "filterItem form-control" })
+                            </div>
+
+                            @Html.Label("Search Value", new { @class = "col-md-2 control-label" })
+                            <div class="col-md-3">
+                                @Html.TextBox("colValue", "", new { @class = "filterItem form-control" })
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" class="btn btn-primary btn-sm" id="filterButton" name="search" value="Filter" />
+                                <input type="button" class="btn btn-primary btn-sm" id="filterButtonClear" name="search" value="Clear" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="grid"></table>
+                        <div id="pager"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<link href="~/Content/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").jqGrid({
+            url: "/AdminOrderDetails/GetNewOrder",
+            datatype: 'json',
+            mtype: 'Get',
+            styleUI: 'Bootstrap',
+            colNames: ['OrderId', 'Order Code', 'Order Date', 'Ordered Items', 'Customer Name'],
+            colModel: [
+                { key: true, hidden: true, name: 'OrderId', index: 'OrderId', classes: 'orderId' },
+                { key: true, name: 'OrderCode', index: 'OrderCode' },
+                { key: false, name: 'OrderDate', index: 'OrderDate', formatter: "date", formatoptions: { newformat: "m/d/Y h:i A" } },
+                //{ key: false, name: 'OrderStatus', index: 'OrderStatus' },
+                { key: false, name: 'OrderedItems', index: 'OrderedItems' },
+                { key: false, name: 'CustomerName', index: 'CustomerName' },
+                //{ key: false, name: 'FullAddress', index: 'FullAddress' }
+            ],
+            pager: jQuery('#pager'),
+            rowNum: 10,
+            rowList: [10, 20, 30, 40],
+            height: '100%',
+            viewrecords: true,
+            //caption: 'Todo List',
+            emptyrecords: 'No records to display',
+            jsonReader: {
+                root: "rows",
+                page: "page",
+                total: "total",
+                records: "records",
+                repeatitems: false,
+                Id: "0"
+            },
+            autowidth: true,
+
+
+            multiselect: true,
+        beforeSelectRow: function (rowid, e) {
+            var $myGrid = $(this),
+                i = $.jgrid.getCellIndex($(e.target).closest('td')[0]),
+                cm = $myGrid.jqGrid('getGridParam', 'colModel');
+            return (cm[i].name === 'cb');
+        }
+        }).navGrid('#pager', { edit: false, add: false, del: false, search: false, refresh: true });
+
+        $('#filterButton').click(function (event) {
+            event.preventDefault();
+            filterGrid();
+        });
+
+        $('#filterButtonClear').click(function (event) {
+            event.preventDefault();
+
+            var postDataValues = $("#grid").jqGrid('getGridParam', 'postData');
+            // grab all the filter ids and values and add to the post object
+            $('.filterItem').each(function (index, item) {
+                $(item).val('');
+                postDataValues[$(item).attr('id')] = $(item).val();
+            });
+            $('#grid').jqGrid().setGridParam({ postData: postDataValues }).trigger('reloadGrid');
+        });
+
+
+        $(document).on("click", "#grid tbody tr", function (e) {
+            if (e.target.nodeName != "INPUT") {
+                window.document.location = '/Admin/Order/orderitemdetails?orderId=' + $(this).find('td.orderId').html();
+            }
+        });
+
+        $(document).on('click', '.cbox', function (e) {
+            if ($('.cbox:checked').length > 0) {
+                $('#btn-del-selected').show();
+                $('#btn-Delivered-selected').show();
+            }
+            else {
+                $('#btn-del-selected').hide();
+                $('#btn-Delivered-selected').hide();
+            }
+        });
+        $(document).on('click', '#btn-del-selected', function (e) {
+            e.preventDefault();
+
+            var selectedtokens = "";
+            $.each($('.cbox.checkbox:checked'), function (index, element) {
+                selectedtokens += '~' + $(this).parents('tr').find('.orderId').html();
+            });
+            if (selectedtokens != "") {
+                swal({
+                    title: "Change delivery status",
+                    text: "Are you sure you want to change delivery status to CANCELLED for selected orders?",
+                    type: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: "No",
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes",
+                    closeOnConfirm: true
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        var urlData = { stkns: selectedtokens };
+                        $.get("/Admin/Order/ChangeStatusCancel", urlData).done(function (resultData) {
+                            var resultObj = JSON.parse(resultData);
+                            if (resultObj.isSuccess == "True") {
+                                toastr.success(resultObj.message);
+                            }
+                            else {
+                                toastr.error(resultObj.message);
+                            }
+                            window.location.reload(true);
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+    $(document).on('click', '#btn-Delivered-selected', function (e) {
+        e.preventDefault();
+
+        var selectedtokens = "";
+        $.each($('.cbox.checkbox:checked'), function (index, element) {
+            selectedtokens += '~' + $(this).parents('tr').find('.orderId').html();
+        });
+        if (selectedtokens != "") {
+            swal({
+                title: "Change delivery status",
+                text: "Are you sure you want to change delivery status to DELIVERED for selected orders?",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonText: "No",
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes",
+                closeOnConfirm: true
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    var urlData = { stkns: selectedtokens };
+                    $.get("/Admin/Order/ChangeStatusDelivered", urlData).done(function (resultData) {
+                        var resultObj = JSON.parse(resultData);
+                        if (resultObj.isSuccess == "True") {
+                            toastr.success(resultObj.message);
+                        }
+                        else {
+                            toastr.error(resultObj.message);
+                        }
+                        window.location.reload(true);
+                    });
+                }
+            });
+        }
+    });
+
+
+    function filterGrid() {
+        var postDataValues = $("#grid").jqGrid('getGridParam', 'postData');
+
+        // grab all the filter ids and values and add to the post object
+        $('.filterItem').each(function (index, item) {
+            postDataValues[$(item).attr('id')] = $(item).val();
+        });
+
+        $('#grid').jqGrid().setGridParam({ postData: postDataValues }).trigger('reloadGrid');
+    }
+
+</script>
+
+
+

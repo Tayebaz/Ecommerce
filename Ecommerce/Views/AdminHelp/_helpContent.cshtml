@@ -1,0 +1,5 @@
+﻿@model Ecommerce.Models.HelpViewModel
+@{
+    ViewBag.MainTitle = "Help";
+}
+@Html.Raw(HttpUtility.HtmlDecode(Model == null ? "" : Model.Contents))

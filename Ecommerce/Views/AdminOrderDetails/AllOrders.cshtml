@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Ecommerce.Models.OrderViewModel>
+@using Common.Cryptography;
+@{
+    ViewBag.MainTitle = "All Orders";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <h2 class="panel-title">Order List</h2>
+
+            </header>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="grid"></table>
+                    <div id="pager"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<link href="~/Content/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").jqGrid({
+            url: "/AdminOrderDetails/GetallOrderStatus",
+            datatype: 'json',
+            mtype: 'Get',
+            styleUI: 'Bootstrap',
+            colNames: ['OrderId', 'Order Code', 'Order Date', 'Ordered Items', 'Customer Name'],
+            colModel: [
+                  { key: true, hidden: true, name: 'OrderId', index: 'OrderId', classes: 'orderId' },
+                 { key: true, name: 'OrderCode', index: 'OrderCode' },
+                 { key: false, name: 'OrderDate', index: 'OrderDate', formatter: "date", formatoptions: { newformat: "m/d/Y h:i A" } },
+                  //{ key: false, name: 'OrderStatus', index: 'OrderStatus' },
+                   { key: false, name: 'OrderedItems', index: 'OrderedItems' },
+                { key: false, name: 'CustomerName', index: 'CustomerName' }
+                //{ key: false, name: 'FullAddress', index: 'FullAddress' }
+            ],
+            pager: jQuery('#pager'),
+            rowNum: 10,
+            rowList: [10, 20, 30, 40],
+            height: '100%',
+            viewrecords: true,
+            //caption: 'Todo List',
+            emptyrecords: 'No records to display',
+            jsonReader: {
+                root: "rows",
+                page: "page",
+                total: "total",
+                records: "records",
+                repeatitems: false,
+                Id: "0"
+            },
+            autowidth: true,
+            multiselect: false
+        }).navGrid('#pager', { edit: false, add: false, del: false, search: false, refresh: true });
+
+        $(document).on("click", "#grid tbody tr", function (e) {
+            if (e.target.nodeName != "INPUT") {
+                window.document.location = '/Admin/Order/orderitemdetails?orderId=' + $(this).find('td.orderId').html();
+            }
+        });
+
+
+    });
+</script>
+
+
+

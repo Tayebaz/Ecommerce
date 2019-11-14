@@ -1,0 +1,75 @@
+﻿@model Ecommerce.Models.UserViewModel
+         @{
+    ViewBag.MainTitle = "My Profile";
+}
+<div class="row">
+    <div class="col-md-4 col-lg-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div id="myprofile" class="widget-toggle-expand mb-md">
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-8 col-lg-8">
+
+        <div class="tabs">
+            <ul class="nav nav-tabs" data-tabs="tabs" id="myTab">
+                <li class="active"><a id="lnkedit" href="#edit" data-toggle="tab">Edit</a></li>
+                <li><a id="lnkchangeProfileImage" href="#changeProfileImage" data-toggle="tab">Change Profile Image</a></li>
+                <li><a id="lnkchangePassword" href="#changePassword" data-toggle="tab">Change Password</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane active" id="edit">
+                    <script type="text/javascript">
+                        $('#lnkedit').click(function (e) {
+                            location.hash = this.getAttribute("href");
+                            $.get('/Admin/User/ProfileEdit/@Model.TokenKey').done(function (result) {
+                                $('#edit').html(result);
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="tab-pane" id="changeProfileImage">
+                    <script type="text/javascript">
+                        $('#lnkchangeProfileImage').click(function (e) {
+                            location.hash = this.getAttribute("href");
+                            $.get('/Admin/User/ChangeProfileImage/@Model.TokenKey').done(function (result) {
+                                $('#changeProfileImage').html(result);
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="tab-pane" id="changePassword">
+                    <script type="text/javascript">
+                        $('#lnkchangePassword').click(function (e) {
+                            location.hash = this.getAttribute("href");
+                            $.get('/Admin/User/ChangePassword/@Model.TokenKey').done(function (result) {
+                                $('#changePassword').html(result);
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.get('/Admin/User/ProfileOverview/@Model.TokenKey').done(function (result) {
+            $('#myprofile').html(result);
+        });
+
+        $.get('/Admin/User/ProfileEdit/@Model.TokenKey').done(function (result) {
+            $('#edit').html(result);
+        });
+
+
+        if (location.hash) {
+            $('a[href=' + location.hash + ']').tab('show');
+            $('a[href=' + location.hash + ']').click();
+        }
+    });
+</script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>

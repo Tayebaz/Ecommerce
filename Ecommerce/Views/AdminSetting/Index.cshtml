@@ -1,0 +1,195 @@
+﻿@model Ecommerce.Models.SettingViewModel
+@{
+    ViewBag.MainTitle = "Setting";
+}
+
+<header class="page-header">
+    <h2>Settings</h2>
+</header>
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Index", "AdminSetting", FormMethod.Post, new { id = "frmCreate", @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(m => m.Logo)          
+            <section class="panel">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Save Setting</h2>
+                </header>
+                <div class="panel-body">
+                    <div class="form-group">
+                        @Html.Label("Close Shop", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.CheckBox("isClosed", Model.isClosed, new { @class = "form-control" })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("Company Name", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Logo", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.LogoUpload, new { @Type = "file", @accept = "image/gif, image/jpeg,image/png" })
+                            @Html.ValidationMessageFor(m => m.LogoUpload, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">&nbsp;</div>
+                        <div class="col-md-6">
+                            <img id="imgLogo" style="width:100px; height:100px;" src="@Url.Action("GetLogo", "AdminSetting", new { area = "Admin" })" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Page Title", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.PageTitle, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PageTitle, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Page Keyword", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.PageKeyword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PageKeyword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Page Description", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.PageDescription, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.PageDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Facebook Link", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.FacebookLink, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FacebookLink, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Twitter Link", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.TwitterLink, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.TwitterLink, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Google Link", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.GoogleLink, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.GoogleLink, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Address", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Email", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Phone", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Web Address", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.WebAddress, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.WebAddress, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <h4>Hours of Operation</h4>
+                    <div class="form-group">
+                        @Html.Label("Monday", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Mon, new { @class = "form-control"})
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Tuesday", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Tue, new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Wednesday", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Wed, new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Thursday", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Thur, new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Friday", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Fri, new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Saturday", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Sat, new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Sunday", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(m => m.Sun, new { @class = "form-control" })
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-9 col-md-offset-3">
+                            <input type="submit" class="btn btn-primary pull-right" value="Save" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </div>
+</div>
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+<script src="~/Scripts/CustomJavascripts/Common.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $("#LogoUpload").change(function () {
+            readURL(this, $('#imgLogo'));
+        });       
+    });
+</script>

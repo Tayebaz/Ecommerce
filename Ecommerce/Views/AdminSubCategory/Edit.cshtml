@@ -1,0 +1,50 @@
+﻿@model Ecommerce.Models.SubCategoryViewModel
+@{
+    ViewBag.MainTitle = "Sub Category";
+}
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Edit", "AdminSubCategory", FormMethod.Post, new { area = "Admin", id = "frmEdit", @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.TokenKey)
+            @*@Html.HiddenFor(m => m.HierarchyLevel)*@
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <section class="panel">
+                <header class="panel-heading">
+                    <h2 class="panel-title">Edit Category</h2>
+                </header>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group">
+                            @Html.Label("Category", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(model => model.CategoryId, Model.CategoryList, "Select..", new { @id = "selectlist", @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.SubCategoryName, "Sub-Category Name", new { @class = "col-md-3 control-label" })
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.SubCategoryName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.SubCategoryName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-9 col-md-offset-3">
+                            <input type="submit" class="btn btn-primary pull-right" value="Update" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/CustomJavascripts/Common.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
