@@ -100,12 +100,6 @@
     <Reference Include="MvcPaging">
       <HintPath>..\DLLReference\MvcPaging.dll</HintPath>
     </Reference>
-    <Reference Include="Neodynamic.SDK.ThermalLabel, Version=9.0.0.0, Culture=neutral, PublicKeyToken=0630b9b3415848af, processorArchitecture=MSIL">
-      <HintPath>..\packages\Neodynamic.SDK.ThermalLabel.9.0.19.1028\lib\netstandard2.0\Neodynamic.SDK.ThermalLabel.dll</HintPath>
-    </Reference>
-    <Reference Include="Neodynamic.SDK.ThermalLabel.WindowsPrinting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=0630b9b3415848af, processorArchitecture=MSIL">
-      <HintPath>..\packages\Neodynamic.SDK.ThermalLabel.WindowsPrinting.9.0.19.925\lib\net461\Neodynamic.SDK.ThermalLabel.WindowsPrinting.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -114,6 +108,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="PrinterUtility, Version=1.0.2.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\PrinterUtility.1.2.0\lib\PrinterUtility.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\SkiaSharp.1.60.0\lib\net45\SkiaSharp.dll</HintPath>
@@ -422,6 +419,8 @@
     <Content Include="Content\JPList\jplist.core.min.css" />
     <Content Include="Content\JPList\jplist.pagination-bundle.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="files\ClientOrderTemplateEmail.html" />
+    <Content Include="files\EmailTemplate.html" />
     <Content Include="files\myfile.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -430,7 +429,6 @@
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
