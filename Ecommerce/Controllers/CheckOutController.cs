@@ -14,7 +14,11 @@ using System.Web;
 using System.Web.Mvc;
 using Ecommerce.Models;
 using Common.GlobalMethods;
-using Neodynamic.SDK.Printing;
+
+using System.Text;
+using PrinterUtility;
+using System.Net.Mail;
+using System.Net;
 
 namespace GrihastiWebsite.Controllers
 {
@@ -29,6 +33,8 @@ namespace GrihastiWebsite.Controllers
         private OrderBusiness _OrderBusiness;
         private OrderedItemBusiness _OrderedItemBusiness;
         EcommerceContext db = new EcommerceContext();
+
+        PrinterUtility.EscPosEpsonCommands.EscPosEpson obj = new PrinterUtility.EscPosEpsonCommands.EscPosEpson();
 
         public CheckOutController()
         {
@@ -45,10 +51,10 @@ namespace GrihastiWebsite.Controllers
 
         public ActionResult Index()
         {
-          
+
 
             EcommerceContext db = new EcommerceContext();
-            string[] WorkingHour=null;
+            string[] WorkingHour = null;
 
 
             if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday)
@@ -69,21 +75,23 @@ namespace GrihastiWebsite.Controllers
 
 
 
-            DateTime  FromDateTime  = DateTime.Parse( DateTime.Now.ToString("MM/dd/yyyy") + " " + WorkingHour[0]);
+            DateTime FromDateTime = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy") + " " + WorkingHour[0]);
             DateTime ToDateTime = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy") + " " + WorkingHour[1]);
 
             if (FromDateTime.ToString("tt").ToLower() == "pm" && ToDateTime.ToString("tt").ToLower() == "am")
                 ToDateTime = ToDateTime.AddDays(1);
 
 
-            double iWorkingHour = (  ToDateTime - FromDateTime).TotalHours;
-            double CurrentTotalHour =  (DateTime.Now - FromDateTime  ).TotalHours;
+            double iWorkingHour = (ToDateTime - FromDateTime).TotalHours;
+            double CurrentTotalHour = (DateTime.Now - FromDateTime).TotalHours;
 
             bool IsClosed = false;
 
-            if (CurrentTotalHour >= iWorkingHour)
+            if( (CurrentTotalHour >= iWorkingHour) || (DateTime.Now < FromDateTime))
                 IsClosed = true;
-                                            CheckOutViewModel chkOut = new CheckOutViewModel();
+            
+
+            CheckOutViewModel chkOut = new CheckOutViewModel();
             var assignedProductList = new List<AddToCart>();
 
             var productList = _productBusiness.GetListWT();
@@ -156,8 +164,8 @@ namespace GrihastiWebsite.Controllers
 
             return View(chkOut);
         }
-      
-       
+
+
 
         [AcceptVerbs(HttpVerbs.Post)]
         [ValidateAntiForgeryToken]
@@ -178,7 +186,7 @@ namespace GrihastiWebsite.Controllers
                 ModelState.AddModelError("", error);
             }
 
-            
+
 
 
             return View(checkOutViewModel);
@@ -226,57 +234,154 @@ namespace GrihastiWebsite.Controllers
                                  }).ToList();
             vmorder.cartwishlist = vmProductList;
 
-            #region print invoice
-            //Define a ThermalLabel object and set unit to inch and label size
-            ThermalLabel tLabel = new ThermalLabel(UnitType.Inch, 3, 2);
-            tLabel.GapLength = 0.2;
 
-            //Define a TextItem object 
-            TextItem txt = new TextItem(0.1, 0.1, 2.8, 0.5, "Decreasing 50");
-            //set counter step for decreasing by 1
-            //txt.CounterStep = -1;
-            //set font
-           // txt.Font.Name = Neodynamic.SDK.Printing.Font.NativePrinterFontS;
-            txt.Font.Unit = FontUnit.Point;
+            PrintInvoice(vmorder);
+            SendEmail(vmorder);
 
-            //Define a BarcodeItem object
-            // bc = new BarcodeItem(0.1, 0.57, 2.8, 1.3, BarcodeSymbology.Code128, "ABC01");
-            //set counter step for increasing by 1
-            //.CounterStep = 1;
-            //set barcode size
-            //bc.BarWidth = 0.02;
-            //bc.BarHeight = 0.75;
-            //set barcode alignment
-            //bc.BarcodeAlignment = BarcodeAlignment.MiddleCenter;
-            //set font
-            //bc.Font.Name = Neodynamic.SDK.Printing.Font.NativePrinterFontA;
-            //bc.Font.Unit = FontUnit.Point;
-            //bc.Font.Size = 10;
-
-            //Add items to ThermalLabel object...
-            tLabel.Items.Add(txt);
-            //tLabel.Items.Add(bc);
-
-            //Create a WindowsPrintJob object
-            using (WindowsPrintJob pj = new WindowsPrintJob())
-            {
-                //Create PrinterSettings object
-                PrinterSettings myPrinter = new PrinterSettings();
-                myPrinter.Communication.CommunicationType = CommunicationType.USB;
-                myPrinter.Dpi = 203;
-                myPrinter.ProgrammingLanguage = ProgrammingLanguage.ESCPOS;
-                myPrinter.PrinterName = "POS-80";
-              
-
-                //Set PrinterSettings to PrintJob
-                pj.PrinterSettings = myPrinter;
-                //Set num of labels to generate
-                pj.Copies = 1;
-                //Print ThermalLabel object...
-                pj.Print(tLabel);
-            }
-            #endregion
             return View(vmorder);
+        }
+
+
+
+        private void PrintInvoice(OrderViewModel  MyOrderModel)
+        {
+           
+            var BytesValue = Encoding.ASCII.GetBytes(string.Empty);
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Separator());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.CharSize.Nomarl());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.FontSelect.FontA());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Alignment.Center());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes(MyOrderModel.FirstName+ " " + MyOrderModel.LastName+"\n"));
+            BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes(MyOrderModel.Email  + "\n"));
+            BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes(MyOrderModel.Phone + "\n"));
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, obj.CharSize.DoubleWidth4());
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes(MyOrderModel.Phone));
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.CharSize.Nomarl());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Separator());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes("Invoice\n"));
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Alignment.Left());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes("Order No. : "+ MyOrderModel.OrderId.ToString()+"\n"));
+            BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes("Date      : "+DateTime.Now.ToString("MM-dd-yyyy hh:mm:ss")+"\n"));
+            BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes("Itm                                      Qty      Size   Attr\n"));
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Separator());
+
+            for (int index=0; index< MyOrderModel.cartwishlist.Count; index++)
+            {
+                
+                BytesValue = PrintExtensions.AddBytes(BytesValue, string.Format("{0,-40}{1,6}{2,9}{3,9}\n", MyOrderModel.cartwishlist[index].ProductName, MyOrderModel.cartwishlist[index].quantity, MyOrderModel.cartwishlist[index].Size, MyOrderModel.cartwishlist[index].Attributes));
+            }
+
+
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Alignment.Right());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Separator());
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes("Total\n"));
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, Encoding.ASCII.GetBytes("288.00\n"));
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Separator());
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Lf());
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Alignment.Center());
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, obj.CharSize.DoubleHeight6());
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, obj.BarCode.Code128("12345"));
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, obj.QrCode.Print("12345", PrinterUtility.Enums.QrCodeSize.Grande));
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, "-------------------Thank you for coming------------------------\n");
+            //BytesValue = PrintExtensions.AddBytes(BytesValue, obj.Alignment.Left());
+            BytesValue = PrintExtensions.AddBytes(BytesValue, CutPage());
+            PrinterUtility.PrintExtensions.Print(BytesValue, System.Configuration.ConfigurationManager.AppSettings["PrinterPath"].ToString());
+
+
+
+        }
+
+      
+            private bool SendEmail(OrderViewModel MyOrderModel)
+            {
+                bool result = false;
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        var senderEmail = new MailAddress("t.k.c.gannon@gmail.com", "TheKnightClub");
+                        var receiverEmail = new MailAddress("altayeb.az@gmail.com", "tayeb_az");
+                        var password = "Admin@01";
+                        var sub = "Your Order " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt");
+                        var body = GetEmailBody(MyOrderModel);
+                       
+                       
+
+                        var smtp = new SmtpClient
+                        {
+                            Host = "smtp.gmail.com",
+                            Port = 587,
+                            EnableSsl = true,
+                            DeliveryMethod = SmtpDeliveryMethod.Network,
+                            UseDefaultCredentials = false,
+                            Credentials = new NetworkCredential(senderEmail.Address, password)
+                        };
+                        using (var mess = new MailMessage(senderEmail, receiverEmail)
+                        {
+                            Subject = sub,
+                            Body = body,
+                            IsBodyHtml = true
+                        })
+                        {
+                            smtp.Send(mess);
+                        result= true;
+                        }
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Error = "Some Error";
+                result= false;
+                }
+            return result;
+
+            }
+
+        private string GetEmailBody(OrderViewModel MyOrderModel)
+        {
+           string  body = System.IO.File.ReadAllText(Server.MapPath("~/files/EmailTemplate.html"));
+            body = body.Replace("#0#", MyOrderModel.OrderCode).Replace("#1#", MyOrderModel.OrderDate.ToString("MM-dd-yyyy hh:mm:ss tt")).Replace("#2#", MyOrderModel.OrderStatus).Replace("#3#", MyOrderModel.Email).Replace("#4#", MyOrderModel.FirstName + " " + MyOrderModel.LastName).Replace("#5#", MyOrderModel.Phone);
+
+
+            string RowItm = "";
+            double Total = 0;
+            for (int i = 0; i< MyOrderModel.cartwishlist.Count; i++ )
+            {
+                RowItm += "<tr data-productid='9'>";
+                RowItm += "<td data-title='Product Name'><b>" + MyOrderModel.cartwishlist[i].ProductName + "</b>";
+                RowItm += "<ul>";
+                RowItm += "<li>" + MyOrderModel.cartwishlist[i].ProductCode + "</li>";
+                RowItm += "<li>Size: " + MyOrderModel.cartwishlist[i].Size + "</li>";
+                RowItm += "<li>Attr: " + MyOrderModel.cartwishlist[i].Attributes + "</li>";
+                RowItm += "</ul>";
+                RowItm += "</td>";
+                RowItm += " <td data-title='Price' >$ <span >" + MyOrderModel.cartwishlist[i].Price.ToString() + "</span></td>";
+                RowItm += "<td data-title='Quantity' >"+ MyOrderModel.cartwishlist[i].quantity.ToString()+ "</td>";
+                RowItm += "<td data-title='Total' >$ "+ (MyOrderModel.cartwishlist[i].Price  * MyOrderModel.cartwishlist[i].quantity).ToString() + "</td>";
+                RowItm += "</tr>";
+                
+                Total += Convert.ToDouble(MyOrderModel.cartwishlist[i].Price) *  Convert.ToDouble(MyOrderModel.cartwishlist[i].quantity);
+
+            }
+
+            body = body.Replace("#6#", RowItm).Replace("#7#", Total.ToString()).Replace("#8#", Total.ToString());
+
+            return body;
+        }
+
+         
+
+        
+
+        private byte[] CutPage()
+        {
+            List<byte> oby = new List<byte>();
+            oby.Add(Convert.ToByte(Convert.ToChar(0x1D)));
+            oby.Add(Convert.ToByte('V'));
+            oby.Add((byte)66);
+            oby.Add((byte)3);
+            return oby.ToArray();
         }
 
         [NonAction]
@@ -543,7 +648,7 @@ namespace GrihastiWebsite.Controllers
 
 
 
-       
+
 
     }
 }
