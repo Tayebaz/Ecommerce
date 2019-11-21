@@ -419,7 +419,6 @@
     <Content Include="Content\JPList\jplist.core.min.css" />
     <Content Include="Content\JPList\jplist.pagination-bundle.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="files\ClientOrderTemplateEmail.html" />
     <Content Include="files\EmailTemplate.html" />
     <Content Include="files\myfile.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

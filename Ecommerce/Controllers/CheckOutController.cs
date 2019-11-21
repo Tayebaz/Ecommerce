@@ -155,7 +155,8 @@ namespace GrihastiWebsite.Controllers
 
             chkOut.OrderList = vmProductList;
             _userBusiness = new UserBusiness();
-            var currentUser = _userBusiness.GetUserByemail(Session["CurrentUserEmail"].ToString());
+            Entities.Models.User CurrentUser = (Entities.Models.User)Session["CurrentUserInfo"];
+            var currentUser = _userBusiness.GetUserByemail(CurrentUser.Email);
             chkOut.FirstNameShopper = currentUser.FirstName;
             chkOut.LastNameShopper = currentUser.LastName;
             chkOut.EmailShopper = currentUser.Email;
@@ -299,9 +300,13 @@ namespace GrihastiWebsite.Controllers
                 {
                     if (ModelState.IsValid)
                     {
-                        var senderEmail = new MailAddress("t.k.c.gannon@gmail.com", "TheKnightClub");
-                        var receiverEmail = new MailAddress("altayeb.az@gmail.com", "tayeb_az");
-                        var password = "Admin@01";
+                    string FromEmail = System.Configuration.ConfigurationManager.AppSettings["FromEmail"];
+                    string EmailPass = System.Configuration.ConfigurationManager.AppSettings["EmailPassword"];
+                    string DisplayName = System.Configuration.ConfigurationManager.AppSettings["FromEmailDisplayName"];
+
+                        var senderEmail = new MailAddress(FromEmail, DisplayName);
+                        var receiverEmail = new MailAddress(MyOrderModel.Email, MyOrderModel.FirstName);
+                        var password = EmailPass;
                         var sub = "Your Order " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt");
                         var body = GetEmailBody(MyOrderModel);
                        
@@ -309,9 +314,9 @@ namespace GrihastiWebsite.Controllers
 
                         var smtp = new SmtpClient
                         {
-                            Host = "smtp.gmail.com",
-                            Port = 587,
-                            EnableSsl = true,
+                            Host = System.Configuration.ConfigurationManager.AppSettings["SmtpHost"],
+                            Port = int.Parse(System.Configuration.ConfigurationManager.AppSettings["SmtpPort"]),
+                            EnableSsl = bool.Parse(System.Configuration.ConfigurationManager.AppSettings["SmtpEnableSsl"]),
                             DeliveryMethod = SmtpDeliveryMethod.Network,
                             UseDefaultCredentials = false,
                             Credentials = new NetworkCredential(senderEmail.Address, password)

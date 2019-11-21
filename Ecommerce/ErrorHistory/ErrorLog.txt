@@ -1501,3 +1501,12 @@ Object reference not set to an instance of an object.
 ------------------------------Date: 11-12-2019_06-52-23--------------------------------
 Object reference not set to an instance of an object.
 
+------------------------------Date: 11-18-2019_03-46-05--------------------------------
+c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\aab9bcdf\4a999774\App_Web_index.cshtml.6331810a.gxp780wl.0.cs(28): error CS0246: The type or namespace name 'WebApp' could not be found (are you missing a using directive or an assembly reference?)
+
+------------------------------Date: 11-20-2019_04-19-41--------------------------------
+Object reference not set to an instance of an object.
+
+------------------------------Date: 11-20-2019_04-23-18--------------------------------
+Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+

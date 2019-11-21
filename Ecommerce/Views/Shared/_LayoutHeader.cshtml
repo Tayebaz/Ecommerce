@@ -178,8 +178,6 @@
 
                             <!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - -
     </div><!--/ .nav_item-->
-                            
-
                             <!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
                             <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
 
@@ -193,6 +191,8 @@
                                         <li><a href="~/CheckOut/index">Checkout</a></li>
                                         <li><a href="~/About/index">About</a></li>
                                         <li><a href="~/About/index?helpType=Contact">Contact Us</a></li>
+                                        
+                                        <li>@Html.ActionLink("LogOut", "LogOut", "Home", null, null)</li>
                                     </ul>
 
                                 </nav><!--/ .main_navigation-->
@@ -203,35 +203,35 @@
                             <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
                             @{
                                 GrihastiWebsite.Controllers.ProductController product = new GrihastiWebsite.Controllers.ProductController();
-                               // var wishList = product.GetWishList();
+                                // var wishList = product.GetWishList();
                                 var cartList = product.GetCartList();
-                               // var compareList = product.GetCompareList();
+                                // var compareList = product.GetCompareList();
                             }
 
                             @*<div class="nav_item size_4">
-                                @if (wishList.Count > 0)
-                                {
-                                    <a href="~/WishList/index" class="wishlist_button" data-amount="@wishList.Count()"></a>
-                                }
-                                else
-                                {
-                                    <a href="~/WishList/index" class="wishlist_button"></a>
-                                }
+            @if (wishList.Count > 0)
+            {
+                <a href="~/WishList/index" class="wishlist_button" data-amount="@wishList.Count()"></a>
+            }
+            else
+            {
+                <a href="~/WishList/index" class="wishlist_button"></a>
+            }
 
-                            </div>/ .nav_item
-                             - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - 
-                             - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - 
+        </div>/ .nav_item
+         - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - -
+         - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - -
 
-                            <div class="nav_item size_4">
-                                @if (compareList.Count() > 0)
-                                {
-                                    <a href="~/CompareList/index" class="compare_button" data-amount="@compareList.Count()"></a>
-                                }
-                                else
-                                {
-                                    <a href="~/CompareList/index" class="compare_button"></a>
-                                }
-                            </div>/ .nav_item*@
+        <div class="nav_item size_4">
+            @if (compareList.Count() > 0)
+            {
+                <a href="~/CompareList/index" class="compare_button" data-amount="@compareList.Count()"></a>
+            }
+            else
+            {
+                <a href="~/CompareList/index" class="compare_button"></a>
+            }
+        </div>/ .nav_item*@
                             <!-- - - - - - - - - - - - - - End of main navigation - - - - - - - - - - - - - - - - -->
                             <!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
 
@@ -312,12 +312,13 @@
                                 }
 
                             </div><!--/ .nav_item-->
-                            <!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
+                         
+                        <!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
 
-                        </div><!--/ .sticky_inner -->
-                    <!-- - - - - - - - - - - - - - End of sticky container - - - - - - - - - - - - - - - - -->
+                            </div><!--/ .sticky_inner -->
+                            <!-- - - - - - - - - - - - - - End of sticky container - - - - - - - - - - - - - - - - -->
 
-                </div><!--/ [col]-->
+                        </div><!--/ [col]-->
 
             </div><!--/ .row-->
 
