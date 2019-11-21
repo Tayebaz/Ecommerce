@@ -163,6 +163,7 @@ namespace GrihastiWebsite.Controllers
             chkOut.IsBlocked = currentUser.IsBlocked;
             chkOut.IsStoreClosed = IsClosed;
 
+
             return View(chkOut);
         }
 
